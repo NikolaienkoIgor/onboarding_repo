@@ -1,9 +1,10 @@
 site_name: Fintom8 Onboarding Hub
 site_description: Your guide to getting started at Fintom8
 site_author: Fintom8 Engineering Team
+site_url: https://nikolaienkoigor.github.io/onboarding_repo/
 docs_dir: docs
-repo_url: https://github.com/fintom8/onboarding
-repo_name: fintom8/onboarding
+repo_url: https://github.com/NikolaienkoIgor/onboarding_repo
+repo_name: NikolaienkoIgor/onboarding_repo
 
 theme:
   name: material
