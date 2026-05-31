@@ -1,0 +1,79 @@
+site_name: Fintom8 Onboarding Hub
+site_description: Your guide to getting started at Fintom8
+site_author: Fintom8 Engineering Team
+docs_dir: docs
+repo_url: https://github.com/fintom8/onboarding
+repo_name: fintom8/onboarding
+
+theme:
+  name: material
+  logo: assets/no8box_logo.jpg
+  favicon: assets/no8box_logo.jpg
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotate
+    - content.code.copy
+    - toc.follow
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - def_list
+  - footnotes
+
+nav:
+  - Home: index.md
+  - Development:
+    - Process: development/process.md
+    - Task: development/task.md
+    - Tools: development/tools.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/fintom8
+    - icon: fontawesome/brands/slack
+      link: https://fintom8.slack.com
+  generator: false
+
+copyright: Copyright &copy; 2026 Fintom8
