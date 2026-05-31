@@ -25,6 +25,9 @@ hello-world-app/
 
 ### Step 1 — Setup (both)
 
+!!! warning "Python version check"
+    Before you start, confirm which Python version is installed on your machine by running `python --version` or `python3 --version` in your terminal. Note the version — you will use this **default system Python** throughout the task. Do **not** create a virtual environment.
+
 1. Create a new **private** repository on GitHub named `hello-world-app`.
 2. Clone it locally.
 3. Create the three top-level folders: `Frontend/`, `Backend/`, `Documentation/`.

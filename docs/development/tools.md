@@ -65,3 +65,11 @@ A Google Cloud Platform project is a container for all cloud resources — APIs,
 A serverless platform on GCP that runs containerised applications. You give it a Docker image, it handles scaling, networking, and HTTPS automatically. At Fintom8 it is used to deploy backend services without managing servers.
 
 [:material-youtube: Watch a short tutorial](https://www.youtube.com/results?search_query=gcp+cloud+run+tutorial+beginners)
+
+---
+
+## Python Environment
+
+Python must be installed on your machine to run the FastAPI backend locally. At Fintom8 we use the **default system Python** — no virtual environments for local development. Make sure you know which Python version is active on your machine and how to install packages with `pip`.
+
+[:material-youtube: Watch a short tutorial](https://www.youtube.com/results?search_query=python+installation+pip+beginners+tutorial)
