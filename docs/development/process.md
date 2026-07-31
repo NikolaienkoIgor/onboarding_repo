@@ -23,7 +23,7 @@ This page describes how the Fintom8 team collaborates to build and ship a featur
     npm run dev
     ```
     The frontend runs at `http://localhost:3000`. No backend server is required for UI-only changes.
-2. **Code editing** — She opens the project in **Cursor (AI Code Editor)** and implements the visual design adjustments for the "orders" button.
+2. **Code editing** — She opens the project in **VScode or Cursor (AI Code Editor)** and implements the visual design adjustments for the "orders" button.
 3. **Local testing** — She runs the application locally to verify that the UI updates display correctly.
 4. **Git commit & push:**
     - Once satisfied, Nika runs the local test suite to make sure nothing is broken.

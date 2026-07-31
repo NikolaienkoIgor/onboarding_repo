@@ -1,6 +1,6 @@
-# Welcome to the Fintom8 Onboarding Hub :wave:
+# Welcome to the Onboarding Hub :wave:
 
-**Hello and welcome to Fintom8!** We're thrilled to have you on the team.
+**Hello and welcome!** We're thrilled to have you on the team.
 
 This onboarding guide is your go-to resource as you settle in. It covers everything from the tools we use daily to our engineering culture, workflows, and best practices.
 
@@ -8,7 +8,7 @@ This onboarding guide is your go-to resource as you settle in. It covers everyth
 
 ## How to use this guide
 
-Navigate using the tabs at the top or the sidebar on the left. Each chapter focuses on a different aspect of working at Fintom8. We recommend going through the chapters in order, especially in your first two weeks.
+Navigate using the tabs at the top or the sidebar on the left. Each chapter focuses on a different aspect of working here. We recommend going through the chapters in order, especially in your first two weeks.
 
 !!! tip "Take your time"
     Don't try to absorb everything at once. Bookmark this site and return to it whenever you need a refresher.
@@ -27,8 +27,8 @@ Navigate using the tabs at the top or the sidebar on the left. Each chapter focu
 
 Make sure you've received the following from your manager or IT:
 
-- [ ] Company email address (`yourname@fintom8.com`)
-- [ ] Access to GitHub organisation `fintom8`
+- [ ] Company email address
+- [ ] Access to the GitHub organisation
 - [ ] Slack workspace invite
 - [ ] Jira / Confluence access
 - [ ] 1Password team vault invite
@@ -39,4 +39,4 @@ Make sure you've received the following from your manager or IT:
 
 ---
 
-*Last updated: May 2026 · Maintained by the Fintom8 Engineering Team*
+*Last updated: May 2026 · Maintained by the Engineering Team*

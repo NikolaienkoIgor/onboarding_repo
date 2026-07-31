@@ -40,7 +40,7 @@ hello-world-app/
 !!! info "Nika only starts the frontend server"
     For UI-only work you do **not** need the backend running.
 
-1. **Set up the Next.js app** inside `Frontend/` — Nika is vibe coding, so she opens **Cursor** and prompts it directly instead of running CLI commands manually. A good prompt to get started:
+1. **Set up the Next.js app** inside `Frontend/` — Nika is vibe coding, so she opens the project in **VScode or Cursor (AI Code Editor)** and prompts it directly instead of running CLI commands manually. A good prompt to get started:
 
     > *"Create a new Next.js project in the Frontend/ folder. Use TypeScript, Tailwind CSS and ESLint. Use the App Router. It's a Hello World app — the only thing on the page is a button labelled 'Hello'. The button doesn't do anything yet, no backend connection needed. Keep the folder structure clean and don't add any example components."*
 

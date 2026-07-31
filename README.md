@@ -1,4 +1,4 @@
-# Fintom8 Onboarding Hub
+# Onboarding Hub
 
 ## Run locally
 
