@@ -4,6 +4,14 @@ A quick reference to every tool used in the development workflow. Each entry inc
 
 ---
 
+## Python Environment
+
+Python must be installed on your machine to run the FastAPI backend locally. At Fintom8 we use the **default system Python** — no virtual environments for local development. Make sure you know which Python version is active on your machine and how to install packages with `pip`.
+
+[:material-youtube: Watch a short tutorial](https://www.youtube.com/results?search_query=python+installation+pip+beginners+tutorial)
+
+---
+
 ## Cursor
 
 An AI-first code editor built on VS Code. Cursor lets you write, edit, and refactor code by chatting with an AI directly inside the editor — no copy-pasting from a browser required. This is the main tool Nika uses for frontend work.
@@ -67,9 +75,3 @@ A serverless platform on GCP that runs containerised applications. You give it a
 [:material-youtube: Watch a short tutorial](https://www.youtube.com/results?search_query=gcp+cloud+run+tutorial+beginners)
 
 ---
-
-## Python Environment
-
-Python must be installed on your machine to run the FastAPI backend locally. At Fintom8 we use the **default system Python** — no virtual environments for local development. Make sure you know which Python version is active on your machine and how to install packages with `pip`.
-
-[:material-youtube: Watch a short tutorial](https://www.youtube.com/results?search_query=python+installation+pip+beginners+tutorial)
