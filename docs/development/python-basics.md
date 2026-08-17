@@ -71,7 +71,7 @@ C:\Users\User\AppData\Local\Python\pythoncore-3.14-64\python.exe script.py
 python script.py
 ```
 !!! tip
-    Ask AI model in Code Editot to save the link to the Python .exe file to Windows PATH. It will do it for you.
+    Ask AI model in Code Editor to save the link to the Python .exe file to Windows PATH. It will do it for you.
 ---
 
 ## 5. Using Python for files
