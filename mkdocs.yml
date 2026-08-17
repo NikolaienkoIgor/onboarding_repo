@@ -66,6 +66,7 @@ nav:
     - Process: development/process.md
     - Task: development/task.md
     - Tools: development/tools.md
+    - Python Basics: development/python-basics.md
 
 extra:
   generator: false

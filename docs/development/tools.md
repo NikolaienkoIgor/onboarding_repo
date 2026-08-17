@@ -6,9 +6,9 @@ A quick reference to every tool used in the development workflow. Each entry inc
 
 ## Python Environment
 
-Python must be installed on your machine to run the FastAPI backend locally. At Fintom8 we use the **default system Python** — no virtual environments for local development. Make sure you know which Python version is active on your machine and how to install packages with `pip`.
+Python is a highly popular programming language for AI development. To run it on your compute, you need some things to setup it propely.
 
-[:material-youtube: Watch a short tutorial](https://www.youtube.com/results?search_query=python+installation+pip+beginners+tutorial)
+[:material-book-open-variant: Read a short tutorial](python-basics.md)
 
 ---
 
