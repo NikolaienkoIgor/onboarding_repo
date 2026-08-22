@@ -2,7 +2,7 @@
 
 ## What it is
 
-Structured output means getting a response back in a fixed, predictable format — instead of a free-text sentence.
+Structured output means getting a LLM response back in a fixed, predictable format — instead of a free-text sentence.
 
 Free text:
 
@@ -16,6 +16,40 @@ Structured output:
   "vendor": "Acme"
 }
 ```
+
+---
+
+## Example: Getting structured output from Gemini
+
+Here's a short example of how this actually looks in code, using Google's Gemini model:
+
+```python
+import google.generativeai as genai
+
+model = genai.GenerativeModel("gemini-pro")
+```
+
+This sets up a connection to the Gemini model so we can send it a request.
+
+```python
+response = model.generate_content(
+    "Extract the total and vendor from this invoice.",
+    generation_config={"response_mime_type": "application/json"}
+)
+
+print(response.text)
+```
+
+Output:
+
+```json
+{
+  "total": 42.5,
+  "vendor": "Acme"
+}
+```
+
+Instead of getting back a sentence, we told the model to return its answer directly as structured JSON.
 
 ---
 
