@@ -67,7 +67,7 @@ nav:
     - Task: development/task.md
     - Tools: development/tools.md
     - Python Basics: development/python-basics.md
-    - Regex / Pattern: development/regex-pattern.md
+    - Regex: development/regex-pattern.md
     - Structured Output: development/structured-output.md
     - Pydantic: development/pydantic.md
 

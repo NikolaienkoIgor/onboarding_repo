@@ -2,7 +2,7 @@
 
 ## What it is
 
-Structured output means getting a LLM response back in a fixed, predictable format — instead of a free-text sentence.
+Structured output means getting a response back from an LLM in a fixed, predictable format — instead of a free-text sentence.
 
 Free text:
 
@@ -19,40 +19,6 @@ Structured output:
 
 ---
 
-## Example: Getting structured output from Gemini
-
-Here's a short example of how this actually looks in code, using Google's Gemini model:
-
-```python
-import google.generativeai as genai
-
-model = genai.GenerativeModel("gemini-pro")
-```
-
-This sets up a connection to the Gemini model so we can send it a request.
-
-```python
-response = model.generate_content(
-    "Extract the total and vendor from this invoice.",
-    generation_config={"response_mime_type": "application/json"}
-)
-
-print(response.text)
-```
-
-Output:
-
-```json
-{
-  "total": 42.5,
-  "vendor": "Acme"
-}
-```
-
-Instead of getting back a sentence, we told the model to return its answer directly as structured JSON.
-
----
-
 ## Why it matters
 
 Structured output makes a response:
@@ -64,9 +30,11 @@ Structured output makes a response:
 
 ---
 
-## How the format is defined: Schema
+## What a Schema is
 
-A schema describes exactly what the output must contain.
+A schema is just a description of what fields you expect back, and what type each field should be.
+
+Think of it like filling out a form with labeled boxes — one box says "put a number here," another says "put text here." A schema is that form, written in a way a computer can read.
 
 | Term | Meaning |
 |---|---|
@@ -77,7 +45,7 @@ A schema describes exactly what the output must contain.
 | `null` | No value available |
 | `additionalProperties: false` | No extra/unexpected fields allowed |
 
-Example:
+Example — a schema saying "give me a `total` (a number) and a `vendor` (text)":
 
 ```json
 {
@@ -90,6 +58,70 @@ Example:
   "additionalProperties": false
 }
 ```
+
+---
+
+## Example: Getting structured output from Gemini
+
+Now let's see this actually happen in code, step by step, using Google's Gemini model.
+
+**Step 1 — Connect to the model**
+
+```python
+import google.generativeai as genai
+
+model = genai.GenerativeModel("gemini-pro")
+```
+
+- `import google.generativeai as genai` loads the tool we need to talk to Gemini.
+- `genai.GenerativeModel("gemini-pro")` picks which Gemini model to use, and saves it as `model` so we can use it in the next steps.
+
+**Step 2 — Define the schema**
+
+```python
+schema = {
+    "type": "object",
+    "properties": {
+        "total": {"type": "number"},
+        "vendor": {"type": "string"}
+    }
+}
+```
+
+This is the exact same kind of schema we just covered above — it tells Gemini what fields we want back, and what type each one should be.
+
+**Step 3 — Ask Gemini for a structured response**
+
+```python
+response = model.generate_content(
+    "Extract the total and vendor from this invoice.",
+    generation_config={
+        "response_mime_type": "application/json",
+        "response_schema": schema
+    }
+)
+```
+
+- The first part is a normal plain-English instruction, same as you'd type into a chat.
+- `response_mime_type: "application/json"` tells Gemini: "give me the answer as JSON, not as a sentence."
+- `response_schema: schema` tells Gemini: "and make sure that JSON follows exactly the shape I defined in Step 2."
+
+**Step 4 — Read the result**
+
+```python
+print(response.text)
+```
+
+Output:
+
+```json
+{
+  "total": 42.5,
+  "vendor": "Acme"
+}
+```
+
+Instead of a sentence, we get back a JSON object that matches the schema exactly — with a `total` as a number and a `vendor` as text, nothing extra, nothing missing.
 
 ---
 
