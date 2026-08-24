@@ -70,6 +70,8 @@ nav:
     - Regex: development/regex-pattern.md
   - Tool Stack:
     - Tools: development/tools.md
+  - Trial Task:
+    - Task: development/task.md
   - E-Invoicing:
     - What Is an Invoice?: e-invoicing/what-is-an-invoice.md
     - Why E-Invoicing?: e-invoicing/why-e-invoicing.md
@@ -77,8 +79,6 @@ nav:
     - E-Invoice Formats: e-invoicing/e-invoice-formats.md
     - Schematron Validation: e-invoicing/schematron-validation.md
     - Summary & Glossary: e-invoicing/summary-glossary.md
-  - Trial Task:
-    - Task: development/task.md
 
 extra:
   generator: false
