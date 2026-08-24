@@ -83,6 +83,45 @@
 }
 
 /* ---------- Sidebar ---------- */
+
+/* Section titles visible in the sidebar (e.g. "Basic Concepts", "E-Invoicing").
+   With navigation.tabs + navigation.sections the sidebar uses a "lifted" nav:
+   only the active tab's content is shown, and its section title is the sticky
+   label rendered as  .md-nav--lifted > ... > .md-nav__item--active > .md-nav__link.
+
+   We also target .md-nav__item--section > .md-nav__link for the general
+   navigation.sections pattern (non-lifted / mobile views). */
+
+/* 1) Lifted nav – the sticky section title at the top of the sidebar */
+@media screen and (min-width: 76.25em) {
+  .md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link {
+    color: #010101 !important;
+    font-weight: 800 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  [data-md-color-scheme="slate"]
+    .md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link {
+    color: #ffffff !important;
+  }
+}
+
+/* 2) General section titles (mobile / non-lifted fallback) */
+.md-nav__item--section > .md-nav__link {
+  color: #010101 !important;
+  font-weight: 800 !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+[data-md-color-scheme="slate"] .md-nav__item--section > .md-nav__link {
+  color: #ffffff !important;
+}
+
+/* Generic nav title (mobile drawer heading) */
 .md-nav__title {
   color: #010101;
   font-weight: 700;
@@ -91,6 +130,14 @@
 .md-nav__item--active > .md-nav__link {
   color: #ff000f;
   font-weight: 600;
+}
+
+/* Hide the repeated top-level tab label at the top of the desktop sidebar —
+   it already appears in the tab bar above. */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary .md-nav__title[for^="__nav_"] {
+    display: none;
+  }
 }
 
 .md-nav__link:hover {
