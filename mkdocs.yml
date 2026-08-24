@@ -70,6 +70,13 @@ nav:
     - Regex: development/regex-pattern.md
   - Tool Stack:
     - Tools: development/tools.md
+  - E-Invoicing:
+    - What Is an Invoice?: e-invoicing/what-is-an-invoice.md
+    - Why E-Invoicing?: e-invoicing/why-e-invoicing.md
+    - Inside an E-Invoice, ZUGFeRD: e-invoicing/zugferd.md
+    - E-Invoice Formats: e-invoicing/e-invoice-formats.md
+    - Schematron Validation: e-invoicing/schematron-validation.md
+    - Summary & Glossary: e-invoicing/summary-glossary.md
   - Trial Task:
     - Task: development/task.md
 
