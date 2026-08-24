@@ -1,7 +1,5 @@
 # Schematron Validation
 
-**EN 16931** is the European standard, published by CEN, that defines what a valid e-invoice must contain — required fields, how totals must add up, how VAT must be applied. A revised version was approved on October 23, 2025, aligned with ViDA.
-
 **Schematron** is the language used to express EN 16931's rules (e.g. "the invoice total must equal the sum of the line items") in a form that can be checked against an XML file.
 
 **XSLT files:** Schematron rules are compiled into XSLT files — large, machine-executable files (15,000+ lines) containing the validation rules, error-location logic, error-reporting templates, and namespace handling. Fintom8 uses two:
