@@ -63,8 +63,8 @@ markdown_extensions:
 
 nav:
   - Basic Concepts:
-    - Process: development/process.md
     - Python Basics: development/python-basics.md
+    - Dev Process: development/process.md
     - Structured Output: development/structured-output.md
     - Pydantic: development/pydantic.md
     - Regex: development/regex-pattern.md
