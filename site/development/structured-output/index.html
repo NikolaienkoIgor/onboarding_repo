@@ -12,9 +12,13 @@
         <meta name="author" content="Engineering Team">
       
       
-        <link rel="canonical" href="https://nikolaienkoigor.github.io/onboarding_repo/toolstack/communication/">
+        <link rel="canonical" href="https://nikolaienkoigor.github.io/onboarding_repo/development/structured-output/">
       
       
+        <link rel="prev" href="../python-basics/">
+      
+      
+        <link rel="next" href="../pydantic/">
       
       
         
@@ -25,7 +29,7 @@
     
     
       
-        <title>Communication - Onboarding Hub</title>
+        <title>Structured Output - Onboarding Hub</title>
       
     
     
@@ -78,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#communication" class="md-skip">
+        <a href="#structured-output" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Communication
+              Structured Output
             
           </span>
         </div>
@@ -219,11 +223,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../development/process/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../process/" class="md-tabs__link">
           
   
   
@@ -243,7 +249,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../development/tools/" class="md-tabs__link">
+        <a href="../tools/" class="md-tabs__link">
           
   
   
@@ -263,7 +269,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../development/task/" class="md-tabs__link">
+        <a href="../task/" class="md-tabs__link">
           
   
   
@@ -350,28 +356,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -389,7 +398,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -407,7 +416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development/process/" class="md-nav__link">
+      <a href="../process/" class="md-nav__link">
         
   
   
@@ -435,7 +444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development/python-basics/" class="md-nav__link">
+      <a href="../python-basics/" class="md-nav__link">
         
   
   
@@ -460,10 +469,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../development/structured-output/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structured Output
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -479,6 +515,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-it-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why it matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-schema-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a Schema is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-getting-structured-output-from-gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Getting structured output from Gemini
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -491,7 +591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development/pydantic/" class="md-nav__link">
+      <a href="../pydantic/" class="md-nav__link">
         
   
   
@@ -519,7 +619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development/regex-pattern/" class="md-nav__link">
+      <a href="../regex-pattern/" class="md-nav__link">
         
   
   
@@ -608,7 +708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development/tools/" class="md-nav__link">
+      <a href="../tools/" class="md-nav__link">
         
   
   
@@ -697,7 +797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development/task/" class="md-nav__link">
+      <a href="../task/" class="md-nav__link">
         
   
   
@@ -981,60 +1081,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#slack" class="md-nav__link">
+  <a href="#what-it-is" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Slack
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Slack">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Getting started
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#key-channels" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key channels
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#slack-etiquette" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Slack etiquette
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#microsoft-teams" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Microsoft Teams
+        What it is
       
     </span>
   </a>
@@ -1042,10 +1092,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#email" class="md-nav__link">
+  <a href="#why-it-matters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Email
+        Why it matters
       
     </span>
   </a>
@@ -1053,10 +1103,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#video-calls-norms" class="md-nav__link">
+  <a href="#what-a-schema-is" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Video calls — norms
+        What a Schema is
       
     </span>
   </a>
@@ -1064,10 +1114,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1password-password-manager" class="md-nav__link">
+  <a href="#example-getting-structured-output-from-gemini" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1Password (Password Manager)
+        Example: Getting structured output from Gemini
       
     </span>
   </a>
@@ -1100,130 +1150,133 @@
   
 
 
-<h1 id="communication">Communication</h1>
-<p>Clear, async-first communication is a core part of how we work at Fintom8. We default to <strong>written, searchable communication</strong> so that knowledge is accessible to everyone, regardless of time zone.</p>
+<h1 id="structured-output">Structured Output</h1>
+<h2 id="what-it-is">What it is</h2>
+<p>Structured output means getting a response back from an LLM in a fixed, predictable format — instead of a free-text sentence.</p>
+<p>Free text:</p>
+<blockquote>
+<p>"The total is 42.50 and the vendor is Acme."</p>
+</blockquote>
+<p>Structured output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">42.5</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">"vendor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme"</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+</code></pre></div>
 <hr />
-<h2 id="slack">Slack</h2>
-<p>Slack is our primary messaging platform for day-to-day communication.</p>
-<h3 id="getting-started">Getting started</h3>
-<ol>
-<li>Accept the invite to <code>fintom8.slack.com</code>.</li>
-<li>Fill in your profile: <strong>full name</strong>, <strong>role</strong>, <strong>team</strong>, and a profile photo.</li>
-<li>Enable <strong>2FA</strong> on your Slack account.</li>
-</ol>
-<h3 id="key-channels">Key channels</h3>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Structured output makes a response:</p>
+<ul>
+<li>Predictable</li>
+<li>Easy to validate</li>
+<li>Easy to pass into another system or database</li>
+<li>Independent of how something is phrased</li>
+</ul>
+<hr />
+<h2 id="what-a-schema-is">What a Schema is</h2>
+<p>A schema is just a description of what fields you expect back, and what type each field should be.</p>
+<p>Think of it like filling out a form with labeled boxes — one box says "put a number here," another says "put text here." A schema is that form, written in a way a computer can read.</p>
 <table>
 <thead>
 <tr>
-<th>Channel</th>
-<th>Purpose</th>
+<th>Term</th>
+<th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>#general</code></td>
-<td>Company-wide announcements</td>
+<td><code>object</code></td>
+<td>The output is a set of fields</td>
 </tr>
 <tr>
-<td><code>#engineering</code></td>
-<td>Engineering discussions and news</td>
+<td><code>properties</code></td>
+<td>Defines what fields exist</td>
 </tr>
 <tr>
-<td><code>#onboarding</code></td>
-<td>Questions from new joiners — ask anything here!</td>
+<td><code>string</code> / <code>number</code></td>
+<td>The data type of a field</td>
 </tr>
 <tr>
-<td><code>#introductions</code></td>
-<td>Introduce yourself to the company</td>
+<td><code>required</code></td>
+<td>Fields that must be present</td>
 </tr>
 <tr>
-<td><code>#releases</code></td>
-<td>Automated deployment notifications</td>
+<td><code>null</code></td>
+<td>No value available</td>
 </tr>
 <tr>
-<td><code>#alerts</code></td>
-<td>Production monitoring alerts</td>
-</tr>
-<tr>
-<td><code>#it-helpdesk</code></td>
-<td>IT access requests and support</td>
-</tr>
-<tr>
-<td><code>#random</code></td>
-<td>Off-topic conversation and fun</td>
+<td><code>additionalProperties: false</code></td>
+<td>No extra/unexpected fields allowed</td>
 </tr>
 </tbody>
 </table>
-<h3 id="slack-etiquette">Slack etiquette</h3>
+<p>Example — a schema saying "give me a <code>total</code> (a number) and a <code>vendor</code> (text)":</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">"vendor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nt">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"total"</span><span class="p">,</span><span class="w"> </span><span class="s2">"vendor"</span><span class="p">],</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nt">"additionalProperties"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="example-getting-structured-output-from-gemini">Example: Getting structured output from Gemini</h2>
+<p>Now let's see this actually happen in code, step by step, using Google's Gemini model.</p>
+<p><strong>Step 1 — Connect to the model</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">google.generativeai</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">genai</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">genai</span><span class="o">.</span><span class="n">GenerativeModel</span><span class="p">(</span><span class="s2">"gemini-pro"</span><span class="p">)</span>
+</code></pre></div>
 <ul>
-<li><strong>Prefer public channels</strong> over DMs for work topics — it keeps knowledge accessible.</li>
-<li>Use <strong>threads</strong> to keep discussions organised within a channel.</li>
-<li>Set your <strong>status</strong> when you're out of office, in deep focus, or on leave.</li>
-<li>Respect <strong>working hours</strong> — avoid expecting instant replies outside 9–18 CET.</li>
-<li>Use <code>/remind</code> to schedule follow-ups so nothing falls through the cracks.</li>
+<li><code>import google.generativeai as genai</code> loads the tool we need to talk to Gemini.</li>
+<li><code>genai.GenerativeModel("gemini-pro")</code> picks which Gemini model to use, and saves it as <code>model</code> so we can use it in the next steps.</li>
 </ul>
-<div class="admonition tip">
-<p class="admonition-title">Do Not Disturb</p>
-<p>Configure your notification schedule in Preferences → Notifications so Slack doesn't ping you outside working hours.</p>
+<p><strong>Step 2 — Define the schema</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">schema</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"object"</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="s2">"properties"</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        <span class="s2">"total"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"number"</span><span class="p">},</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="s2">"vendor"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="p">}</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
+</code></pre></div>
+<p>This is the exact same kind of schema we just covered above — it tells Gemini what fields we want back, and what type each one should be.</p>
+<p><strong>Step 3 — Ask Gemini for a structured response</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">response</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate_content</span><span class="p">(</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="s2">"Extract the total and vendor from this invoice."</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">generation_config</span><span class="o">=</span><span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        <span class="s2">"response_mime_type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        <span class="s2">"response_schema"</span><span class="p">:</span> <span class="n">schema</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="p">}</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>The first part is a normal plain-English instruction, same as you'd type into a chat.</li>
+<li><code>response_mime_type: "application/json"</code> tells Gemini: "give me the answer as JSON, not as a sentence."</li>
+<li><code>response_schema: schema</code> tells Gemini: "and make sure that JSON follows exactly the shape I defined in Step 2."</li>
+</ul>
+<p><strong>Step 4 — Read the result</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<p>Output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">42.5</span><span class="p">,</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">"vendor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme"</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>Instead of a sentence, we get back a JSON object that matches the schema exactly — with a <code>total</code> as a number and a <code>vendor</code> as text, nothing extra, nothing missing.</p>
+<hr />
+<div class="admonition warning">
+<p class="admonition-title">Key point to remember</p>
+<p>A schema defines the <strong>shape</strong> of the output — not whether the <em>content</em> is correct or unambiguous.</p>
+<p>Example: if a source value is ambiguous (like a date that could be read two different ways), the schema can force the output into a certain format, but it cannot decide which interpretation is the right one. That requires separate logic or explicit rules, not the schema alone.</p>
 </div>
-<hr />
-<h2 id="microsoft-teams">Microsoft Teams</h2>
-<p>Teams is used primarily for <strong>cross-team meetings, video calls, and communication with non-engineering stakeholders</strong>.</p>
-<ul>
-<li>All-hands and town-hall meetings are held in Teams.</li>
-<li>Use Teams for calls with external partners or clients.</li>
-<li>Meeting recordings are stored in Teams channels automatically.</li>
-</ul>
-<hr />
-<h2 id="email">Email</h2>
-<p>Email (<code>@fintom8.com</code>) is for <strong>formal and external communication</strong>:</p>
-<ul>
-<li>Contracts, vendor communication, compliance notices.</li>
-<li>Calendar invites for recurring meetings.</li>
-<li>Anything that needs a permanent, formal record.</li>
-</ul>
-<p>Use Slack or Teams for everything internal and day-to-day.</p>
-<hr />
-<h2 id="video-calls-norms">Video calls — norms</h2>
-<table>
-<thead>
-<tr>
-<th>Norm</th>
-<th>Why</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Camera on by default</td>
-<td>Builds team rapport</td>
-</tr>
-<tr>
-<td>Mute when not speaking</td>
-<td>Reduces background noise</td>
-</tr>
-<tr>
-<td>Use a virtual background if needed</td>
-<td>Maintains professionalism</td>
-</tr>
-<tr>
-<td>Share an agenda before the call</td>
-<td>Keeps meetings focused</td>
-</tr>
-<tr>
-<td>Write a summary / action items after the call</td>
-<td>Creates a searchable record</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="1password-password-manager">1Password (Password Manager)</h2>
-<p>We use <strong>1Password Teams</strong> to share credentials securely.</p>
-<ul>
-<li>Never share passwords over Slack, email, or any plaintext medium.</li>
-<li>Store service credentials, API keys, and shared accounts in the relevant 1Password vault.</li>
-<li>Use the browser extension for auto-fill.</li>
-<li>Request vault access from <strong>#it-helpdesk</strong>.</li>
-</ul>
+<div class="admonition tip">
+<p class="admonition-title">One-line takeaway</p>
+<p>A schema controls the format of the output, not the correctness of what goes into it.</p>
+</div>
 
 
 

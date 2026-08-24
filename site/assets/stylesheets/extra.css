@@ -93,6 +93,15 @@
   font-weight: 600;
 }
 
+/* Hide the repeated tab name at the top of the desktop sidebar —
+   it already appears in the tab bar above, so the chapter list
+   underneath doesn't need to restate it */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary .md-nav__title[for^="__nav_"] {
+    display: none;
+  }
+}
+
 .md-nav__link:hover {
   color: #ff000f;
 }
