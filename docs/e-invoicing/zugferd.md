@@ -1,6 +1,6 @@
 # Inside an E-Invoice: ZUGFeRD
 
-ZUGFeRD is Germany's hybrid e-invoice format. It is a special PDF (PDF/A-3) that can contain other files inside it.
+**ZUGFeRD** is Germany's hybrid e-invoice format. It is a special PDF (**PDF/A-3**) that can contain other files inside it.
 
 ```
 ZUGFeRD-Invoice.pdf   (PDF/A-3 container)
@@ -10,7 +10,7 @@ ZUGFeRD-Invoice.pdf   (PDF/A-3 container)
 
 The visible PDF looks like a normal invoice. The hidden XML contains the same data — buyer, seller, line items, totals — in a structured form a machine can process without OCR.
 
-Simplified example of the hidden XML for the invoice in the previous chapter:
+*Simplified example of the hidden XML for the invoice in the previous chapter:*
 
 ```xml
 <rsm:CrossIndustryInvoice ...>
@@ -38,6 +38,7 @@ Simplified example of the hidden XML for the invoice in the previous chapter:
 </rsm:CrossIndustryInvoice>
 ```
 
-The tag names used here (`SellerTradeParty`, `BuyerTradeParty`, etc.) belong to a vocabulary called CII (Cross Industry Invoice), one of two XML formats used for e-invoices.
+The tag names used here (`SellerTradeParty`, `BuyerTradeParty`, etc.) belong to a vocabulary called **CII** (Cross Industry Invoice), one of two XML formats used for e-invoices.
 
-The hybrid approach lets a person keep reading invoices normally while systems process the data underneath — this is the main advantage for small and medium businesses.
+!!! tip "Why hybrid works"
+    The hybrid approach lets a person keep reading invoices normally while systems process the data underneath — this is the main advantage for small and medium businesses.

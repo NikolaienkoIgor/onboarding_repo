@@ -1,6 +1,8 @@
 # What Is an Invoice?
 
-An invoice is a detailed bill that one company sends to another.
+An **invoice** is a detailed bill that one company sends to another.
+
+*Example invoice:*
 
 ```
 FROM: Kumar's Electronics Shop
@@ -51,7 +53,8 @@ Please pay within 30 days
 | Paper invoice | — | Printed physical copy |
 | Digital invoice | `.pdf` | Made in Excel/accounting software, exported as a normal PDF |
 | Photo/image invoice | `.jpg` / `.png` | Scanned or photographed paper invoice |
-| E-invoice | `.xml` | Structured data only — no visual layout, e.g. XRechnung |
-| Hybrid invoice | `.pdf` (PDF/A-3) | A normal PDF with an XML file embedded inside it, e.g. ZUGFeRD |
+| **E-invoice** | `.xml` | Structured data only — no visual layout, e.g. XRechnung |
+| **Hybrid invoice** | `.pdf` (PDF/A-3) | A normal PDF with an XML file embedded inside it, e.g. ZUGFeRD |
 
-A PDF is meant to be read by a person. An XML file is meant to be read by a computer.
+!!! tip "Key distinction"
+    A **PDF** is meant to be read by a **person**. An **XML** file is meant to be read by a **computer**.

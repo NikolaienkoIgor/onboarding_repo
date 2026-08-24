@@ -30,7 +30,7 @@
 
 | | EN16931 Base (1.3.x) | Peppol Extension (3.0.20) |
 |---|---|---|
-| Rule count | 224 | 369 (224 + 145) |
+| Rule count | 224 | **369** (224 + 145) |
 | Address codes | Static, can go outdated | Dynamic, network-validated |
 | PDF attachments | Limited | Fully supported |
 | VAT validation | Legal-level only | Legal + network-transmission level |
@@ -53,10 +53,11 @@ Peppol BIS (3.0.20) includes all 224 base rules plus 145 additional rules for ne
 
 ## Fintom8's validation strategy
 
-Checking only the 224 base rules can produce a false positive — an invoice that passes but is later rejected for a technical or network reason. Fintom8 validates against the full Peppol 3.0.20 rule set, since it includes the base rules plus the network-level checks needed for an invoice to actually be accepted and paid.
+!!! warning "Why base rules aren't enough"
+    Checking only the 224 base rules can produce a false positive — an invoice that passes but is later rejected for a technical or network reason. Fintom8 validates against the full **Peppol 3.0.20** rule set, since it includes the base rules plus the network-level checks needed for an invoice to actually be accepted and paid.
 
 **Staying current:**
 
-- Subscribe to Peppol BIS release notes
-- Check the CEF GitHub repository for new XSLT versions
-- Monitor CEN publications for EN 16931 revisions
+- Subscribe to **Peppol BIS** release notes
+- Check the **CEF GitHub repository** for new XSLT versions
+- Monitor **CEN** publications for EN 16931 revisions
