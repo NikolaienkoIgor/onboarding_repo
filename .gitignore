@@ -29,3 +29,8 @@ node_modules/
 # OS
 .DS_Store
 Thumbs.db
+site/
+.claude/
+CLAUDE.md
+.vscode/
+.idea/
