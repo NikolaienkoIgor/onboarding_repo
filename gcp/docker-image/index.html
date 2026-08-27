@@ -12,8 +12,10 @@
         <meta name="author" content="Engineering Team">
       
       
-        <link rel="canonical" href="https://nikolaienkoigor.github.io/onboarding_repo/toolstack/project-management/">
+        <link rel="canonical" href="https://nikolaienkoigor.github.io/onboarding_repo/gcp/docker-image/">
       
+      
+        <link rel="prev" href="../installation-authentication/">
       
       
       
@@ -25,7 +27,7 @@
     
     
       
-        <title>Project Management - Onboarding Hub</title>
+        <title>Docker Image - Onboarding Hub</title>
       
     
     
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#project-management" class="md-skip">
+        <a href="#docker-image" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Project Management
+              Docker Image
             
           </span>
         </div>
@@ -299,11 +301,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../gcp/installation-authentication/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../installation-authentication/" class="md-tabs__link">
           
   
   
@@ -1062,28 +1066,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -1101,7 +1108,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1119,7 +1126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../gcp/installation-authentication/" class="md-nav__link">
+      <a href="../installation-authentication/" class="md-nav__link">
         
   
   
@@ -1144,10 +1151,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../gcp/docker-image/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Image
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1163,6 +1197,65 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-authenticate-docker-with-gcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Authenticate Docker with GCP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-pull-the-docker-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Pull the Docker Image
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Pull the Docker Image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1202,55 +1295,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#jira" class="md-nav__link">
+  <a href="#1-authenticate-docker-with-gcp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Jira
+        1. Authenticate Docker with GCP
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Jira">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-pull-the-docker-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Pull the Docker Image
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Pull the Docker Image">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#access" class="md-nav__link">
+  <a href="#verify" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Access
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ticket-lifecycle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ticket lifecycle
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ticket-naming" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ticket naming
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sprint-ceremonies" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sprint ceremonies
+        Verify
       
     </span>
   </a>
@@ -1259,56 +1330,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#confluence" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Confluence
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Confluence">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#where-to-find-things" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Where to find things
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#writing-good-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Writing good documentation
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#figma" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Figma
-      
-    </span>
-  </a>
   
 </li>
       
@@ -1338,144 +1359,24 @@
   
 
 
-<h1 id="project-management">Project Management</h1>
-<p>We use <strong>Jira</strong> for task and sprint tracking and <strong>Confluence</strong> for documentation and knowledge management. Both tools are part of the Atlassian suite and are deeply integrated with our GitHub and Slack workflows.</p>
+<h1 id="docker-image">Docker Image</h1>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><a href="https://docs.docker.com/get-docker/">Docker</a> must already be installed before running these steps.</p>
+</div>
 <hr />
-<h2 id="jira">Jira</h2>
-<p>Jira is where all engineering work is tracked. Every piece of work — feature, bug, chore, or spike — lives as a Jira ticket.</p>
-<h3 id="access">Access</h3>
-<p>Log in at <code>https://fintom8.atlassian.net</code> using your company Google account.</p>
-<h3 id="ticket-lifecycle">Ticket lifecycle</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Backlog → To Do → In Progress → In Review → Done
+<h2 id="1-authenticate-docker-with-gcp">1. Authenticate Docker with GCP</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>gcloud<span class="w"> </span>auth<span class="w"> </span>configure-docker
 </code></pre></div>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Backlog</strong></td>
-<td>Not yet scheduled for a sprint</td>
-</tr>
-<tr>
-<td><strong>To Do</strong></td>
-<td>In the current sprint, not started</td>
-</tr>
-<tr>
-<td><strong>In Progress</strong></td>
-<td>Actively being worked on</td>
-</tr>
-<tr>
-<td><strong>In Review</strong></td>
-<td>PR open, awaiting review/merge</td>
-</tr>
-<tr>
-<td><strong>Done</strong></td>
-<td>Merged and deployed</td>
-</tr>
-</tbody>
-</table>
-<h3 id="ticket-naming">Ticket naming</h3>
-<p>Tickets follow the format <code>FIN-&lt;number&gt;</code>, e.g. <code>FIN-420</code>.</p>
-<p>Always reference the ticket number in:</p>
-<ul>
-<li>Your <strong>branch name</strong>: <code>feature/FIN-420-add-payment-retry</code></li>
-<li>Your <strong>PR title</strong>: <code>feat(payments): add retry logic [FIN-420]</code></li>
-<li>Your <strong>commit messages</strong> (optional but encouraged)</li>
-</ul>
-<h3 id="sprint-ceremonies">Sprint ceremonies</h3>
-<table>
-<thead>
-<tr>
-<th>Ceremony</th>
-<th>When</th>
-<th>Duration</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Sprint Planning</td>
-<td>Every other Monday</td>
-<td>1 hour</td>
-</tr>
-<tr>
-<td>Daily Standup</td>
-<td>Daily (async in Slack <code>#standup</code>)</td>
-<td>15 min</td>
-</tr>
-<tr>
-<td>Sprint Review</td>
-<td>Every other Friday</td>
-<td>30 min</td>
-</tr>
-<tr>
-<td>Retrospective</td>
-<td>Every other Friday</td>
-<td>45 min</td>
-</tr>
-<tr>
-<td>Backlog Refinement</td>
-<td>Mid-sprint</td>
-<td>30 min</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition info">
-<p class="admonition-title">Async standup</p>
-<p>Post your daily update in <strong>#standup</strong> before 10:00 CET using the format:</p>
-<ul>
-<li><strong>Yesterday:</strong> what you worked on</li>
-<li><strong>Today:</strong> what you're working on</li>
-<li><strong>Blockers:</strong> anything stopping you</li>
-</ul>
-</div>
+<p>Lets Docker pull images from Google Container Registry / Artifact Registry.</p>
 <hr />
-<h2 id="confluence">Confluence</h2>
-<p>Confluence is our internal wiki — the single source of truth for decisions, architecture docs, runbooks, and team knowledge.</p>
-<h3 id="where-to-find-things">Where to find things</h3>
-<table>
-<thead>
-<tr>
-<th>Space</th>
-<th>Contents</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Engineering</strong></td>
-<td>Architecture decisions, RFCs, runbooks</td>
-</tr>
-<tr>
-<td><strong>Product</strong></td>
-<td>Feature specs, roadmap, user research</td>
-</tr>
-<tr>
-<td><strong>HR &amp; Culture</strong></td>
-<td>People policies, benefits, values</td>
-</tr>
-<tr>
-<td><strong>Onboarding</strong></td>
-<td>This guide lives here too!</td>
-</tr>
-</tbody>
-</table>
-<h3 id="writing-good-documentation">Writing good documentation</h3>
-<ul>
-<li>Write in plain language — assume the reader is a smart person new to the topic.</li>
-<li>Use headings, bullet points, and tables to aid scanning.</li>
-<li>Link to related Jira tickets and GitHub PRs.</li>
-<li>Keep docs up to date — stale docs are worse than no docs.</li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Don't hoard knowledge</p>
-<p>If you figure out how something works, write it down in Confluence. The next person to join will thank you.</p>
-</div>
-<hr />
-<h2 id="figma">Figma</h2>
-<p>Design mockups and prototypes live in <strong>Figma</strong> at <code>https://figma.com</code>. Engineers access Figma in view/comment mode. If you need edit access, request it via <strong>#it-helpdesk</strong>.</p>
+<h2 id="2-pull-the-docker-image">2. Pull the Docker Image</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>IMAGE_NAME:TAG
+</code></pre></div>
+<p>Replace <code>IMAGE_NAME:TAG</code> with the actual image path (e.g. <code>us-docker.pkg.dev/PROJECT/REPO/IMAGE:latest</code>).</p>
+<h3 id="verify">Verify</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>images
+</code></pre></div>
 
 
 

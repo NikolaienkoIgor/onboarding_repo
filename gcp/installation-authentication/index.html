@@ -12,9 +12,13 @@
         <meta name="author" content="Engineering Team">
       
       
-        <link rel="canonical" href="https://nikolaienkoigor.github.io/onboarding_repo/toolstack/project-management/">
+        <link rel="canonical" href="https://nikolaienkoigor.github.io/onboarding_repo/gcp/installation-authentication/">
       
       
+        <link rel="prev" href="../../development/basics-concepts/">
+      
+      
+        <link rel="next" href="../docker-image/">
       
       
         
@@ -25,7 +29,7 @@
     
     
       
-        <title>Project Management - Onboarding Hub</title>
+        <title>Installation & Authentication - Onboarding Hub</title>
       
     
     
@@ -78,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#project-management" class="md-skip">
+        <a href="#installation-authentication" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Project Management
+              Installation & Authentication
             
           </span>
         </div>
@@ -299,11 +303,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../gcp/installation-authentication/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -1062,28 +1068,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -1101,7 +1110,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1116,10 +1125,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../gcp/installation-authentication/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation & Authentication
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1135,6 +1171,148 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-install-google-cloud-sdk-gcloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Install Google Cloud SDK (gcloud)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Install Google Cloud SDK (gcloud)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I. Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ii-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        II. macOS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iii-linux-debianubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        III. Linux (Debian/Ubuntu)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iv-verify-install-all-os" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IV. Verify install (all OS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-authenticate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Authenticate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Authenticate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-first-time-setup-wizard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I. First-time setup wizard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ii-log-in-for-terminal-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        II. Log in for terminal commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iii-log-in-for-your-codesdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        III. Log in for your code/SDK
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iv-set-your-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IV. Set your project
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1147,7 +1325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../gcp/docker-image/" class="md-nav__link">
+      <a href="../docker-image/" class="md-nav__link">
         
   
   
@@ -1202,22 +1380,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#jira" class="md-nav__link">
+  <a href="#1-install-google-cloud-sdk-gcloud" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Jira
+        1. Install Google Cloud SDK (gcloud)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Jira">
+    <nav class="md-nav" aria-label="1. Install Google Cloud SDK (gcloud)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#access" class="md-nav__link">
+  <a href="#i-windows" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Access
+        I. Windows
       
     </span>
   </a>
@@ -1225,10 +1403,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ticket-lifecycle" class="md-nav__link">
+  <a href="#ii-macos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ticket lifecycle
+        II. macOS
       
     </span>
   </a>
@@ -1236,10 +1414,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ticket-naming" class="md-nav__link">
+  <a href="#iii-linux-debianubuntu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ticket naming
+        III. Linux (Debian/Ubuntu)
       
     </span>
   </a>
@@ -1247,10 +1425,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#sprint-ceremonies" class="md-nav__link">
+  <a href="#iv-verify-install-all-os" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sprint ceremonies
+        IV. Verify install (all OS)
       
     </span>
   </a>
@@ -1263,22 +1441,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#confluence" class="md-nav__link">
+  <a href="#2-authenticate" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Confluence
+        2. Authenticate
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Confluence">
+    <nav class="md-nav" aria-label="2. Authenticate">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#where-to-find-things" class="md-nav__link">
+  <a href="#i-first-time-setup-wizard" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Where to find things
+        I. First-time setup wizard
       
     </span>
   </a>
@@ -1286,10 +1464,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#writing-good-documentation" class="md-nav__link">
+  <a href="#ii-log-in-for-terminal-commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Writing good documentation
+        II. Log in for terminal commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iii-log-in-for-your-codesdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        III. Log in for your code/SDK
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iv-set-your-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IV. Set your project
       
     </span>
   </a>
@@ -1298,17 +1498,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#figma" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Figma
-      
-    </span>
-  </a>
   
 </li>
       
@@ -1338,144 +1527,49 @@
   
 
 
-<h1 id="project-management">Project Management</h1>
-<p>We use <strong>Jira</strong> for task and sprint tracking and <strong>Confluence</strong> for documentation and knowledge management. Both tools are part of the Atlassian suite and are deeply integrated with our GitHub and Slack workflows.</p>
-<hr />
-<h2 id="jira">Jira</h2>
-<p>Jira is where all engineering work is tracked. Every piece of work — feature, bug, chore, or spike — lives as a Jira ticket.</p>
-<h3 id="access">Access</h3>
-<p>Log in at <code>https://fintom8.atlassian.net</code> using your company Google account.</p>
-<h3 id="ticket-lifecycle">Ticket lifecycle</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Backlog → To Do → In Progress → In Review → Done
+<h1 id="installation-authentication">Installation &amp; Authentication</h1>
+<h2 id="1-install-google-cloud-sdk-gcloud">1. Install Google Cloud SDK (gcloud)</h2>
+<h3 id="i-windows">I. Windows</h3>
+<ol>
+<li>Download the installer: <a href="https://cloud.google.com/sdk/docs/install">https://cloud.google.com/sdk/docs/install</a></li>
+<li>Run the <code>.exe</code> and follow the prompts.</li>
+<li>Restart your terminal.</li>
+</ol>
+<h3 id="ii-macos">II. macOS</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>google-cloud-sdk
 </code></pre></div>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Backlog</strong></td>
-<td>Not yet scheduled for a sprint</td>
-</tr>
-<tr>
-<td><strong>To Do</strong></td>
-<td>In the current sprint, not started</td>
-</tr>
-<tr>
-<td><strong>In Progress</strong></td>
-<td>Actively being worked on</td>
-</tr>
-<tr>
-<td><strong>In Review</strong></td>
-<td>PR open, awaiting review/merge</td>
-</tr>
-<tr>
-<td><strong>Done</strong></td>
-<td>Merged and deployed</td>
-</tr>
-</tbody>
-</table>
-<h3 id="ticket-naming">Ticket naming</h3>
-<p>Tickets follow the format <code>FIN-&lt;number&gt;</code>, e.g. <code>FIN-420</code>.</p>
-<p>Always reference the ticket number in:</p>
-<ul>
-<li>Your <strong>branch name</strong>: <code>feature/FIN-420-add-payment-retry</code></li>
-<li>Your <strong>PR title</strong>: <code>feat(payments): add retry logic [FIN-420]</code></li>
-<li>Your <strong>commit messages</strong> (optional but encouraged)</li>
-</ul>
-<h3 id="sprint-ceremonies">Sprint ceremonies</h3>
-<table>
-<thead>
-<tr>
-<th>Ceremony</th>
-<th>When</th>
-<th>Duration</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Sprint Planning</td>
-<td>Every other Monday</td>
-<td>1 hour</td>
-</tr>
-<tr>
-<td>Daily Standup</td>
-<td>Daily (async in Slack <code>#standup</code>)</td>
-<td>15 min</td>
-</tr>
-<tr>
-<td>Sprint Review</td>
-<td>Every other Friday</td>
-<td>30 min</td>
-</tr>
-<tr>
-<td>Retrospective</td>
-<td>Every other Friday</td>
-<td>45 min</td>
-</tr>
-<tr>
-<td>Backlog Refinement</td>
-<td>Mid-sprint</td>
-<td>30 min</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition info">
-<p class="admonition-title">Async standup</p>
-<p>Post your daily update in <strong>#standup</strong> before 10:00 CET using the format:</p>
-<ul>
-<li><strong>Yesterday:</strong> what you worked on</li>
-<li><strong>Today:</strong> what you're working on</li>
-<li><strong>Blockers:</strong> anything stopping you</li>
-</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>No Homebrew? Install it first: <a href="https://brew.sh">https://brew.sh</a></p>
 </div>
+<h3 id="iii-linux-debianubuntu">III. Linux (Debian/Ubuntu)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>apt-transport-https<span class="w"> </span>ca-certificates<span class="w"> </span>gnupg<span class="w"> </span>curl
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>curl<span class="w"> </span>https://packages.cloud.google.com/apt/doc/apt-key.gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"deb https://packages.cloud.google.com/apt cloud-sdk main"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/google-cloud-sdk.list
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>google-cloud-cli
+</code></pre></div>
+<h3 id="iv-verify-install-all-os">IV. Verify install (all OS)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>gcloud<span class="w"> </span>--version
+</code></pre></div>
 <hr />
-<h2 id="confluence">Confluence</h2>
-<p>Confluence is our internal wiki — the single source of truth for decisions, architecture docs, runbooks, and team knowledge.</p>
-<h3 id="where-to-find-things">Where to find things</h3>
-<table>
-<thead>
-<tr>
-<th>Space</th>
-<th>Contents</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Engineering</strong></td>
-<td>Architecture decisions, RFCs, runbooks</td>
-</tr>
-<tr>
-<td><strong>Product</strong></td>
-<td>Feature specs, roadmap, user research</td>
-</tr>
-<tr>
-<td><strong>HR &amp; Culture</strong></td>
-<td>People policies, benefits, values</td>
-</tr>
-<tr>
-<td><strong>Onboarding</strong></td>
-<td>This guide lives here too!</td>
-</tr>
-</tbody>
-</table>
-<h3 id="writing-good-documentation">Writing good documentation</h3>
-<ul>
-<li>Write in plain language — assume the reader is a smart person new to the topic.</li>
-<li>Use headings, bullet points, and tables to aid scanning.</li>
-<li>Link to related Jira tickets and GitHub PRs.</li>
-<li>Keep docs up to date — stale docs are worse than no docs.</li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Don't hoard knowledge</p>
-<p>If you figure out how something works, write it down in Confluence. The next person to join will thank you.</p>
-</div>
-<hr />
-<h2 id="figma">Figma</h2>
-<p>Design mockups and prototypes live in <strong>Figma</strong> at <code>https://figma.com</code>. Engineers access Figma in view/comment mode. If you need edit access, request it via <strong>#it-helpdesk</strong>.</p>
+<h2 id="2-authenticate">2. Authenticate</h2>
+<h3 id="i-first-time-setup-wizard">I. First-time setup wizard</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>gcloud<span class="w"> </span>init
+</code></pre></div>
+<p>One-time setup wizard. Opens browser login and lets you pick your GCP project. Run once when starting fresh.</p>
+<h3 id="ii-log-in-for-terminal-commands">II. Log in for terminal commands</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>gcloud<span class="w"> </span>auth<span class="w"> </span>login
+</code></pre></div>
+<p>Logs <strong>you</strong> in, so you can run <code>gcloud</code> commands in the terminal.</p>
+<h3 id="iii-log-in-for-your-codesdk">III. Log in for your code/SDK</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>gcloud<span class="w"> </span>auth<span class="w"> </span>application-default<span class="w"> </span>login
+</code></pre></div>
+<p>Logs in so <strong>your code/SDK</strong> (like the Gemini SDK) can also access GCP. This is separate from the login above — that one is for you, this one is for your programs.</p>
+<h3 id="iv-set-your-project">IV. Set your project</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>gcloud<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>project<span class="w"> </span>YOUR_PROJECT_ID
+</code></pre></div>
+<p>Replace <code>YOUR_PROJECT_ID</code> with your actual GCP project ID.</p>
 
 
 

@@ -301,6 +301,26 @@
   
 
       
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../gcp/installation-authentication/" class="md-tabs__link">
+          
+  
+  
+  GCP
+
+        </a>
+      </li>
+    
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -970,14 +990,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../e-invoicing/zugferd/" class="md-nav__link">
+      <a href="../../e-invoicing/e-invoice-formats/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Inside an E-Invoice, ZUGFeRD
+    E-Invoice Formats
   
 
     
@@ -998,14 +1018,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../e-invoicing/e-invoice-formats/" class="md-nav__link">
+      <a href="../../e-invoicing/what-is-peppol/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    E-Invoice Formats
+    What Is Peppol?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../e-invoicing/zugferd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inside an E-Invoice, ZUGFeRD
   
 
     
@@ -1062,6 +1110,151 @@
     
   
     Summary & Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basics-concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generative Engine Optimization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GCP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GCP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gcp/installation-authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation & Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gcp/docker-image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Image
   
 
     
@@ -1190,7 +1383,7 @@
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
 </code></pre></div>
 <p><code>BaseModel</code> is what Pydantic gives you to build this description from. Writing <code>class Person(BaseModel):</code> is just saying: "Person is a data description, built using Pydantic."</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Rahul&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"Rahul"</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>
 </code></pre></div>
 <p>If the data doesn't match what was described (say, <code>age</code> is given as text instead of a number), Pydantic immediately raises a <strong>validation error</strong> — it won't quietly accept incorrect data.</p>
 <hr />
