@@ -1,5 +1,15 @@
 # E-Invoice Formats
 
+## EN 16931: The Standard Behind Every Format
+
+Before looking at the different e-invoice formats, it helps to know the standard they all follow.
+
+**EN 16931** is the European standard that defines what information a valid e-invoice must contain — required fields, how totals must add up, and how VAT must be applied. It was published to implement EU Directive 2014/55/EU, by CEN (the European Committee for Standardization).
+
+EN 16931 is not a format itself. It is the shared rulebook that formats are built on top of. ZUGFeRD, Factur-X, XRechnung, UBL, and Peppol BIS are all designed to comply with it — that is what "EN 16931-compliant" means when you see it attached to a format name.
+
+A revised version of EN 16931 was approved on October 23, 2025, aligned with the EU's ViDA initiative.
+
 ## Hybrid formats (CII-based)
 
 | Format | Description |
