@@ -75,6 +75,7 @@ nav:
   - E-Invoicing:
     - What Is an Invoice?: e-invoicing/what-is-an-invoice.md
     - Why E-Invoicing?: e-invoicing/why-e-invoicing.md
+    - EN 16931, The Standard Behind Every Format: e-invoicing/en-16931.md
     - E-Invoice Formats: e-invoicing/e-invoice-formats.md
     - What Is Peppol?: e-invoicing/what-is-peppol.md
     - Inside an E-Invoice, ZUGFeRD: e-invoicing/zugferd.md
@@ -82,6 +83,9 @@ nav:
     - Summary & Glossary: e-invoicing/summary-glossary.md
     - E-Invoicing Corner Models: e-invoicing/corner-models.md
     - Generative Engine Optimization: development/basics-concepts.md
+  - GCP:
+    - Installation & Authentication: gcp/installation-authentication.md
+    - Docker Image: gcp/docker-image.md
 
 extra:
   generator: false
