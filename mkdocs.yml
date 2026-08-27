@@ -80,6 +80,9 @@ nav:
     - E-Invoice Formats: e-invoicing/e-invoice-formats.md
     - Schematron Validation: e-invoicing/schematron-validation.md
     - Summary & Glossary: e-invoicing/summary-glossary.md
+  - GCP:
+    - Installation & Authentication: gcp/installation-authentication.md
+    - Docker Image: gcp/docker-image.md
 
 extra:
   generator: false
