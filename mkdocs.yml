@@ -80,6 +80,7 @@ nav:
     - Inside an E-Invoice, ZUGFeRD: e-invoicing/zugferd.md
     - Schematron Validation: e-invoicing/schematron-validation.md
     - Summary & Glossary: e-invoicing/summary-glossary.md
+    - E-Invoicing Corner Models: e-invoicing/corner-models.md
     - Generative Engine Optimization: development/basics-concepts.md
 
 extra:
