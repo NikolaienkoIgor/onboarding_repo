@@ -1,4 +1,5 @@
 # Python Basics
+[:material-youtube: A tutorial on this topic](https://www.youtube.com/watch?v=mP0H_vOweBY&t=2s)
 
 ## 1. What is Python?
 
