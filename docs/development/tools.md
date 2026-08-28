@@ -10,6 +10,8 @@ Python is a highly popular programming language for AI development. To run it on
 
 [:material-book-open-variant: Read a short tutorial](python-basics.md)
 
+[:material-youtube: Watch a short tutorial](https://www.youtube.com/watch?v=mP0H_vOweBY&t=2s)
+
 ---
 
 ## Cursor
