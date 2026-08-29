@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://nikolaienkoigor.github.io/onboarding_repo/e-invoicing/e-invoice-formats/">
       
       
-        <link rel="prev" href="../en-16931/">
+        <link rel="prev" href="../why-e-invoicing/">
       
       
         <link rel="next" href="../what-is-peppol/">
@@ -868,34 +868,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../en-16931/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    EN 16931, The Standard Behind Every Format
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -970,10 +942,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hybrid-formats-cii-based" class="md-nav__link">
+  <a href="#pure-xml-formats-no-pdf" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hybrid formats (CII-based)
+        Pure XML formats (no PDF)
       
     </span>
   </a>
@@ -981,10 +953,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pure-xml-formats-no-pdf" class="md-nav__link">
+  <a href="#hybrid-formats-cii-based" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pure XML formats (no PDF)
+        Hybrid formats (CII-based)
       
     </span>
   </a>
@@ -1053,7 +1025,7 @@
   <span class="md-ellipsis">
     
   
-    Inside an E-Invoice, ZUGFeRD
+    What is ZUGFeRD?
   
 
     
@@ -1341,10 +1313,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hybrid-formats-cii-based" class="md-nav__link">
+  <a href="#pure-xml-formats-no-pdf" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hybrid formats (CII-based)
+        Pure XML formats (no PDF)
       
     </span>
   </a>
@@ -1352,10 +1324,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pure-xml-formats-no-pdf" class="md-nav__link">
+  <a href="#hybrid-formats-cii-based" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pure XML formats (no PDF)
+        Hybrid formats (CII-based)
       
     </span>
   </a>
@@ -1403,8 +1375,41 @@
 <h2 id="en-16931-the-standard-behind-every-format">EN 16931: The Standard Behind Every Format</h2>
 <p>Before looking at the different e-invoice formats, it helps to know the standard they all follow.</p>
 <p><strong>EN 16931</strong> is the European standard that defines what information a valid e-invoice must contain — required fields, how totals must add up, and how VAT must be applied. It was published to implement EU Directive 2014/55/EU, by CEN (the European Committee for Standardization).</p>
+<div class="admonition info">
+<p class="admonition-title">EN 16931</p>
 <p>EN 16931 is not a format itself. It is the shared rulebook that formats are built on top of. ZUGFeRD, Factur-X, XRechnung, UBL, and Peppol BIS are all designed to comply with it — that is what "EN 16931-compliant" means when you see it attached to a format name.</p>
+</div>
 <p>A revised version of EN 16931 was approved on October 23, 2025, aligned with the EU's ViDA initiative.</p>
+<h2 id="pure-xml-formats-no-pdf">Pure XML formats (no PDF)</h2>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>XRechnung</strong></td>
+<td>Germany's XML-only format, mandatory for B2G invoicing, EN 16931-compliant</td>
+</tr>
+<tr>
+<td><strong>UBL</strong> (Universal Business Language)</td>
+<td>Structured XML standard used in international B2B/B2G</td>
+</tr>
+<tr>
+<td><strong>BIS Billing 3.0</strong></td>
+<td>UBL-based format used across the Peppol network, common in public procurement</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Hybrid formats</p>
+<ul>
+<li><strong>Hybrid formats</strong> combine a human-readable PDF invoice with a structured XML file embedded inside it, so the same document can be read by a person and processed automatically by software.</li>
+<li><strong>CII-based hybrid formats</strong> — like ZUGFeRD and Factur-X — store their hidden data using <strong>CII (Cross Industry Invoice)</strong>, an XML standard created by UN/CEFACT (a United Nations body that sets rules for international trade documents). In simple terms: the PDF looks like a normal invoice to a human, but inside it there's a CII-formatted XML file that lists the same invoice details (amounts, dates, tax, parties) in a structured way that accounting software can read automatically — without anyone re-typing the data.</li>
+</ul>
+</div>
 <h2 id="hybrid-formats-cii-based">Hybrid formats (CII-based)</h2>
 <table>
 <thead>
@@ -1432,36 +1437,13 @@
 </tr>
 </tbody>
 </table>
-<h2 id="pure-xml-formats-no-pdf">Pure XML formats (no PDF)</h2>
-<table>
-<thead>
-<tr>
-<th>Format</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>XRechnung</strong></td>
-<td>Germany's XML-only format, mandatory for B2G invoicing, EN 16931-compliant</td>
-</tr>
-<tr>
-<td><strong>UBL</strong> (Universal Business Language)</td>
-<td>Structured XML standard used in international B2B/B2G</td>
-</tr>
-<tr>
-<td><strong>Peppol BIS Billing 3.0</strong></td>
-<td>UBL-based format used across the Peppol network, common in public procurement</td>
-</tr>
-</tbody>
-</table>
 <hr />
 <h2 id="zugferd-vs-peppol">ZUGFeRD vs. Peppol</h2>
 <table>
 <thead>
 <tr>
 <th></th>
-<th>Peppol (UBL)</th>
+<th>Peppol (BIS Billing, UBL-based)</th>
 <th>ZUGFeRD (CII)</th>
 </tr>
 </thead>

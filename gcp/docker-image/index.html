@@ -866,34 +866,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../e-invoicing/en-16931/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    EN 16931, The Standard Behind Every Format
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../e-invoicing/e-invoice-formats/" class="md-nav__link">
         
   
@@ -957,7 +929,7 @@
   <span class="md-ellipsis">
     
   
-    Inside an E-Invoice, ZUGFeRD
+    What is ZUGFeRD?
   
 
     
@@ -1280,6 +1252,95 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#3-run-the-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Run the Container
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Run the Container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verify-its-running" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify it's running
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-basic-docker-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Basic Docker Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Basic Docker Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-and-stopping-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Starting and stopping containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewing-containers-and-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Viewing containers and images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logs-and-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logs and debugging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleaning-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleaning up
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1361,6 +1422,95 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#3-run-the-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Run the Container
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Run the Container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verify-its-running" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify it's running
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-basic-docker-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Basic Docker Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Basic Docker Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-and-stopping-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Starting and stopping containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewing-containers-and-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Viewing containers and images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logs-and-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logs and debugging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleaning-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleaning up
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1405,6 +1555,65 @@
 <h3 id="verify">Verify</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>images
 </code></pre></div>
+<hr />
+<h2 id="3-run-the-container">3. Run the Container</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>CONTAINER_NAME<span class="w"> </span>-p<span class="w"> </span>HOST_PORT:CONTAINER_PORT<span class="w"> </span>IMAGE_NAME:TAG
+</code></pre></div>
+<ul>
+<li><code>-d</code> runs the container in the background (detached mode)</li>
+<li><code>--name</code> gives the container a memorable name instead of a random one</li>
+<li><code>-p HOST_PORT:CONTAINER_PORT</code> maps a port on your machine to a port inside the container</li>
+</ul>
+<h3 id="verify-its-running">Verify it's running</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>ps
+</code></pre></div>
+<p>Shows all currently running containers. Add <code>-a</code> to also see stopped ones:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>ps<span class="w"> </span>-a
+</code></pre></div>
+<hr />
+<h2 id="4-basic-docker-commands">4. Basic Docker Commands</h2>
+<p>A quick reference for the commands you'll use day-to-day once an image is pulled and a container is running.</p>
+<h3 id="starting-and-stopping-containers">Starting and stopping containers</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>start<span class="w"> </span>CONTAINER_NAME_OR_ID
+</code></pre></div>
+<p>Starts a container that already exists but is stopped.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>stop<span class="w"> </span>CONTAINER_NAME_OR_ID
+</code></pre></div>
+<p>Stops a running container gracefully.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>restart<span class="w"> </span>CONTAINER_NAME_OR_ID
+</code></pre></div>
+<p>Stops and starts the container again — useful after changing environment variables or config.</p>
+<h3 id="viewing-containers-and-images">Viewing containers and images</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>ps<span class="w"> </span>-a
+</code></pre></div>
+<p>Lists all containers, running or stopped.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker<span class="w"> </span>images
+</code></pre></div>
+<p>Lists all locally pulled images.</p>
+<h3 id="logs-and-debugging">Logs and debugging</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>docker<span class="w"> </span>logs<span class="w"> </span>CONTAINER_NAME_OR_ID
+</code></pre></div>
+<p>Shows the container's output/logs.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>CONTAINER_NAME_OR_ID
+</code></pre></div>
+<p>Follows the logs in real time (like <code>tail -f</code>).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>CONTAINER_NAME_OR_ID<span class="w"> </span>bash
+</code></pre></div>
+<p>Opens an interactive shell inside a running container — useful for poking around or debugging. Use <code>sh</code> instead of <code>bash</code> if the image doesn't have bash installed.</p>
+<h3 id="cleaning-up">Cleaning up</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>docker<span class="w"> </span>rm<span class="w"> </span>CONTAINER_NAME_OR_ID
+</code></pre></div>
+<p>Removes a stopped container. Add <code>-f</code> to force-remove a running one.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>docker<span class="w"> </span>rmi<span class="w"> </span>IMAGE_NAME:TAG
+</code></pre></div>
+<p>Removes an image you no longer need.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>docker<span class="w"> </span>system<span class="w"> </span>prune
+</code></pre></div>
+<p>Cleans up unused containers, networks, and dangling images to free up disk space.</p>
+<div class="admonition tip">
+<p class="admonition-title">Quick sanity check</p>
+<p>If something feels off, <code>docker ps -a</code> (what's running/stopped) and <code>docker logs CONTAINER_NAME</code> (what happened) are the first two commands to reach for.</p>
+</div>
 
 
 
