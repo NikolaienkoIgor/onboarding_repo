@@ -7,7 +7,8 @@ Before looking at the different e-invoice formats, it helps to know the standard
 **EN 16931** is the European standard that defines what information a valid e-invoice must contain — required fields, how totals must add up, and how VAT must be applied. It was published to implement EU Directive 2014/55/EU, by CEN (the European Committee for Standardization).
 
 !!! info "EN 16931"
-    EN 16931 is not a format itself. It is the shared rulebook that formats are built on top of. ZUGFeRD, Factur-X, XRechnung, UBL, and Peppol BIS are all designed to comply with it — that is what "EN 16931-compliant" means when you see it attached to a format name.
+    - EN 16931 is not a format itself. It is the shared rulebook that formats are built on top of. ZUGFeRD, Factur-X, XRechnung, UBL, and Peppol BIS are all designed to comply with it — that is what "EN 16931-compliant" means when you see it attached to a format name.
+    - **What is VAT?** VAT (Value Added Tax) is a tax added to the price of most goods and services. The seller collects it from the customer at the time of sale and then pays it to the government. It's why the price you pay is usually higher than the seller's base price — that extra amount is the VAT.
 
 A revised version of EN 16931 was approved on October 23, 2025, aligned with the EU's ViDA initiative.
 
