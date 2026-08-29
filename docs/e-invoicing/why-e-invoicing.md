@@ -25,8 +25,8 @@ A PDF or scanned invoice still needs a person, or fragile OCR software, to read 
 | 2027 | E-invoice issuance becomes mandatory for larger businesses (over ~€800,000 prior-year revenue) |
 | **Jan 1, 2028** | **E-invoice issuance becomes mandatory for all businesses in Germany** |
 
-!!! info "ViDA"
-    This is part of the EU's **ViDA** ("VAT in the Digital Age") initiative, aimed at giving tax authorities reliable data and reducing VAT fraud.
+!!! danger "ViDA"
+    **ViDA** ("VAT in the Digital Age") is an initiative taken by European Union Law Draft, that is aimed for giving tax authorities across EU access to invoices to avoid Tax/VAT fraud.
 
 ---
 

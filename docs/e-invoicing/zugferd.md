@@ -1,4 +1,4 @@
-# Inside an E-Invoice: ZUGFeRD
+# What is ZUGFeRD?
 
 **ZUGFeRD** is Germany's hybrid e-invoice format. It is a special PDF (**PDF/A-3**) that can contain other files inside it.
 
