@@ -21,7 +21,7 @@ The more corners a model has, the more the process can support **automation, int
 
 ## 2-Corner Model
 
-### Buyer ↔ Supplier
+![2-Corner Model](../assets/corner-models/2-corner.png)
 
 The simplest model.
 
@@ -37,7 +37,7 @@ The buyer can receive the invoice directly into their Accounts Payable system. A
 
 ## 3-Corner Model
 
-### Buyer → Service Provider ← Supplier
+![3-Corner Model](../assets/corner-models/3-corner.png)
 
 A **service provider** is added between the buyer and supplier.
 
@@ -55,7 +55,7 @@ Invoices can arrive in different formats, such as **PDF or XML**, and can be con
 
 ## 4-Corner Model
 
-### Buyer → Provider ↔ Provider ← Supplier
+![4-Corner Model](../assets/corner-models/4-corner.png)
 
 In this model, **both the buyer and supplier can have their own service provider**.
 
@@ -71,9 +71,7 @@ Different providers can work together using common standards and communication r
 
 ## 5-Corner Model
 
-### Buyer → Provider ↔ Provider ← Supplier
-
-### ↓ Tax Authority
+![5-Corner Model](../assets/corner-models/5-corner.png)
 
 The 5-Corner Model adds the **tax authority**.
 
