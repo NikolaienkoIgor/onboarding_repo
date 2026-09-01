@@ -1,0 +1,2511 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Your guide to getting started">
+      
+      
+        <meta name="author" content="Engineering Team">
+      
+      
+        <link rel="canonical" href="https://nikolaienkoigor.github.io/onboarding_repo/gcp/load-balancer/">
+      
+      
+        <link rel="prev" href="../docker-image/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/no8box_logo.jpg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Load Balancer Setup - Onboarding Hub</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cross-project-load-balancer-setup" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Onboarding Hub" class="md-header__button md-logo" aria-label="Onboarding Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Onboarding Hub
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Load Balancer Setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/NikolaienkoIgor/onboarding_repo" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    NikolaienkoIgor/onboarding_repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../development/python-basics/" class="md-tabs__link">
+          
+  
+  
+  Basic Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../development/tools/" class="md-tabs__link">
+          
+  
+  
+  Tool Stack
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../development/task/" class="md-tabs__link">
+          
+  
+  
+  Trial Task
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../e-invoicing/what-is-an-invoice/" class="md-tabs__link">
+          
+  
+  
+  E-Invoicing
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../geo/what-is-geo/" class="md-tabs__link">
+          
+  
+  
+  GEO
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../installation-authentication/" class="md-tabs__link">
+          
+  
+  
+  GCP
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Onboarding Hub" class="md-nav__button md-logo" aria-label="Onboarding Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Onboarding Hub
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/NikolaienkoIgor/onboarding_repo" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    NikolaienkoIgor/onboarding_repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Basic Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/python-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dev Process
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/structured-output/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structured Output
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/pydantic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pydantic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/regex-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Regex
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool Stack
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tool Stack
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trial Task
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Trial Task
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/task/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E-Invoicing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    E-Invoicing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../e-invoicing/what-is-an-invoice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Is an Invoice?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../e-invoicing/why-e-invoicing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why E-Invoicing?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../e-invoicing/e-invoice-formats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E-Invoice Formats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../e-invoicing/what-is-peppol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Is Peppol?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../e-invoicing/zugferd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What is ZUGFeRD?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../e-invoicing/schematron-validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schematron Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../e-invoicing/summary-glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary & Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../e-invoicing/corner-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E-Invoicing Corner Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GEO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GEO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../geo/what-is-geo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What is GEO?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GCP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GCP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation-authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation & Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker-image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Image
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Load Balancer Setup
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Load Balancer Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#projects-and-regions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Projects and regions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-choices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design choices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glossary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resource inventory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resource inventory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#in-project_a-primary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In PROJECT_A (primary)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-project_b-secondary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In PROJECT_B (secondary)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-procedure-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup procedure (commands)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup procedure (commands)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-cross-project-iam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Cross-project IAM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-global-static-ip-project_a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Global static IP (PROJECT_A)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3a-primary-service-neg-backend-project_a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3A. Primary service NEG + backend (PROJECT_A)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3b-secondary-service-neg-backend-project_b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3B. Secondary service NEG + backend (PROJECT_B)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-managed-ssl-project_a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Managed SSL (PROJECT_A)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-url-map-cross-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. URL map (cross-project)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-https-http-redirect-frontends" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. HTTPS + HTTP redirect frontends
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. DNS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-verify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Verify
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-cloud-nat-static-outbound-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional: Cloud NAT (static outbound IP)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common issues
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ops-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ops checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rollback-high-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollback (high level)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#projects-and-regions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Projects and regions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-choices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design choices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glossary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resource inventory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resource inventory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#in-project_a-primary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In PROJECT_A (primary)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-project_b-secondary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In PROJECT_B (secondary)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-procedure-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup procedure (commands)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup procedure (commands)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-cross-project-iam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Cross-project IAM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-global-static-ip-project_a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Global static IP (PROJECT_A)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3a-primary-service-neg-backend-project_a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3A. Primary service NEG + backend (PROJECT_A)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3b-secondary-service-neg-backend-project_b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3B. Secondary service NEG + backend (PROJECT_B)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-managed-ssl-project_a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Managed SSL (PROJECT_A)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-url-map-cross-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. URL map (cross-project)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-https-http-redirect-frontends" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. HTTPS + HTTP redirect frontends
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. DNS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-verify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Verify
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-cloud-nat-static-outbound-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional: Cloud NAT (static outbound IP)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common issues
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ops-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ops checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rollback-high-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollback (high level)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="cross-project-load-balancer-setup">Cross-Project Load Balancer Setup</h1>
+<p>How to route traffic from a single domain to Cloud Run services in <strong>two separate GCP projects</strong> using a global HTTPS Application Load Balancer.</p>
+<hr />
+<h2 id="goal">Goal</h2>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>Backend</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>https://example.com/</code></td>
+<td>Cloud Run <code>SERVICE_A</code> (Project A)</td>
+</tr>
+<tr>
+<td><code>https://example.com/app-b/</code></td>
+<td>Cloud Run <code>SERVICE_B</code> (Project B)</td>
+</tr>
+</tbody>
+</table>
+<p>Both apps stay in <strong>separate GCP projects</strong>. A global HTTPS Application Load Balancer in Project A routes by path.</p>
+<hr />
+<h2 id="projects-and-regions">Projects and regions</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Project ID</th>
+<th>Region</th>
+<th>Cloud Run service</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primary (website + LB frontend)</td>
+<td><code>PROJECT_A</code></td>
+<td><code>REGION_A</code></td>
+<td><code>SERVICE_A</code></td>
+</tr>
+<tr>
+<td>Secondary (app B)</td>
+<td><code>PROJECT_B</code></td>
+<td><code>REGION_B</code></td>
+<td><code>SERVICE_B</code></td>
+</tr>
+</tbody>
+</table>
+<p>Replace the placeholders above with your actual values before running any commands.</p>
+<hr />
+<h2 id="architecture">Architecture</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Browser  →  DNS  →  Global static IP (PROJECT_A)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>                      │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>                      ▼
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>            Global External HTTPS ALB
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>            (SSL terminate + URL map)
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                      │
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>          ┌───────────┴───────────┐
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>          │                       │
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>   /app-b*                      /* (default)
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>          │                       │
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>          ▼                       ▼
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>Backend (cross-project)   Backend (same project)
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>PROJECT_B                 PROJECT_A
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>service-b-backend         service-a-backend
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>          │                       │
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>          ▼                       ▼
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>Serverless NEG            Serverless NEG
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>REGION_B                  REGION_A
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>          │                       │
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>          ▼                       ▼
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>Cloud Run: SERVICE_B        Cloud Run: SERVICE_A
+</code></pre></div>
+<h3 id="design-choices">Design choices</h3>
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Two projects</td>
+<td>Keep services and ownership separate</td>
+</tr>
+<tr>
+<td>Global external ALB</td>
+<td>Cross-project backend referencing <strong>without</strong> Shared VPC</td>
+</tr>
+<tr>
+<td>Serverless NEG</td>
+<td>Bridge ALB → Cloud Run (Cloud Run cannot attach to a normal backend alone)</td>
+</tr>
+<tr>
+<td>Path-based routing</td>
+<td>URL map sends matching paths to the secondary project's backend</td>
+</tr>
+</tbody>
+</table>
+<h3 id="glossary">Glossary</h3>
+<ul>
+<li><strong>NEG (Network Endpoint Group)</strong> — tells the LB where backends live. A <em>serverless</em> NEG points at a Cloud Run service.</li>
+<li><strong>Backend service</strong> — LB config that holds one or more NEGs.</li>
+<li><strong>URL map</strong> — path/host routing rules.</li>
+<li><strong>Cross-project reference</strong> — URL map in project A points at a backend service in project B.</li>
+</ul>
+<hr />
+<h2 id="resource-inventory">Resource inventory</h2>
+<h3 id="in-project_a-primary">In <code>PROJECT_A</code> (primary)</h3>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Global static IP</td>
+<td><code>lb-static-ip</code> (e.g. <code>136.68.200.159</code>)</td>
+</tr>
+<tr>
+<td>Serverless NEG</td>
+<td><code>service-a-neg</code> (<code>REGION_A</code>)</td>
+</tr>
+<tr>
+<td>Backend service</td>
+<td><code>service-a-backend</code></td>
+</tr>
+<tr>
+<td>Managed SSL cert</td>
+<td><code>lb-ssl-cert</code> (<code>example.com</code>, <code>www.example.com</code>)</td>
+</tr>
+<tr>
+<td>URL map (HTTPS)</td>
+<td><code>lb-url-map</code></td>
+</tr>
+<tr>
+<td>URL map (HTTP redirect)</td>
+<td><code>lb-http-redirect</code></td>
+</tr>
+<tr>
+<td>Target HTTPS proxy</td>
+<td><code>lb-https-proxy</code></td>
+</tr>
+<tr>
+<td>Target HTTP proxy</td>
+<td><code>lb-http-proxy</code></td>
+</tr>
+<tr>
+<td>Forwarding rule :443</td>
+<td><code>lb-https-forwarding-rule</code></td>
+</tr>
+<tr>
+<td>Forwarding rule :80</td>
+<td><code>lb-http-forwarding-rule</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="in-project_b-secondary">In <code>PROJECT_B</code> (secondary)</h3>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Serverless NEG</td>
+<td><code>service-b-neg</code> (<code>REGION_B</code>)</td>
+</tr>
+<tr>
+<td>Backend service</td>
+<td><code>service-b-backend</code></td>
+</tr>
+<tr>
+<td>Cloud Run</td>
+<td><code>SERVICE_B</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="iam">IAM</h3>
+<ul>
+<li>On <code>PROJECT_B</code>: grant <code>roles/compute.loadBalancerServiceUser</code> to the user or service account that manages the URL map in <code>PROJECT_A</code> (e.g. <code>user:YOUR_EMAIL</code> or <code>serviceAccount:SA_NAME@PROJECT_A.iam.gserviceaccount.com</code>).</li>
+</ul>
+<hr />
+<h2 id="setup-procedure-commands">Setup procedure (commands)</h2>
+<p>Set variables once:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>gcloud<span class="w"> </span>auth<span class="w"> </span>login
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PROJECT_A</span><span class="o">=</span>your-primary-project-id
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PROJECT_B</span><span class="o">=</span>your-secondary-project-id
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">REGION_A</span><span class="o">=</span>your-primary-region<span class="w">        </span><span class="c1"># e.g. europe-west1</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nb">export</span><span class="w"> </span><span class="nv">REGION_B</span><span class="o">=</span>your-secondary-region<span class="w">      </span><span class="c1"># e.g. europe-west3</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nb">export</span><span class="w"> </span><span class="nv">SERVICE_A</span><span class="o">=</span>your-primary-service<span class="w">      </span><span class="c1"># e.g. my-website</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nb">export</span><span class="w"> </span><span class="nv">SERVICE_B</span><span class="o">=</span>your-secondary-service<span class="w">      </span><span class="c1"># e.g. my-app</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nb">export</span><span class="w"> </span><span class="nv">DOMAIN</span><span class="o">=</span>example.com
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH_PREFIX</span><span class="o">=</span>/app-b<span class="w">                    </span><span class="c1"># path routed to SERVICE_B</span>
+</code></pre></div>
+<h3 id="0-prerequisites">0. Prerequisites</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">for</span><span class="w"> </span>P<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_A</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_B</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>gcloud<span class="w"> </span>services<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>compute.googleapis.com<span class="w"> </span>run.googleapis.com<span class="w"> </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">P</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">done</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>gcloud<span class="w"> </span>services<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>certificatemanager.googleapis.com<span class="w"> </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_A</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div>
+<p>Ensure both Cloud Run services are deployed and healthy before continuing.</p>
+<h3 id="1-cross-project-iam">1. Cross-project IAM</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>gcloud<span class="w"> </span>projects<span class="w"> </span>add-iam-policy-binding<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_B</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>--member<span class="o">=</span><span class="s2">"user:YOUR_EMAIL"</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>--role<span class="o">=</span><span class="s2">"roles/compute.loadBalancerServiceUser"</span>
+</code></pre></div>
+<p>Replace <code>YOUR_EMAIL</code> with the Google account (or service account) that will create and manage the load balancer in <code>PROJECT_A</code>.</p>
+<h3 id="2-global-static-ip-project_a">2. Global static IP (<code>PROJECT_A</code>)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>addresses<span class="w"> </span>create<span class="w"> </span>lb-static-ip<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_A</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--global<span class="w"> </span>--ip-version<span class="o">=</span>IPV4
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>addresses<span class="w"> </span>describe<span class="w"> </span>lb-static-ip<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_A</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--global<span class="w"> </span>--format<span class="o">=</span><span class="s1">'value(address)'</span>
+</code></pre></div>
+<p>Save the IP address — you will need it for DNS. Example value: <code>136.68.200.159</code>.</p>
+<h3 id="3a-primary-service-neg-backend-project_a">3A. Primary service NEG + backend (<code>PROJECT_A</code>)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>network-endpoint-groups<span class="w"> </span>create<span class="w"> </span>service-a-neg<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_A</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--region<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">REGION_A</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span>--network-endpoint-type<span class="o">=</span>serverless<span class="w"> </span>--cloud-run-service<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">SERVICE_A</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>backend-services<span class="w"> </span>create<span class="w"> </span>service-a-backend<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_A</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--global<span class="w"> </span>--load-balancing-scheme<span class="o">=</span>EXTERNAL_MANAGED
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>backend-services<span class="w"> </span>add-backend<span class="w"> </span>service-a-backend<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_A</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--global<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span>--network-endpoint-group<span class="o">=</span>service-a-neg<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span>--network-endpoint-group-region<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">REGION_A</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div>
+<h3 id="3b-secondary-service-neg-backend-project_b">3B. Secondary service NEG + backend (<code>PROJECT_B</code>)</h3>
+<p>NEG + backend <strong>must</strong> live in the same project as the Cloud Run service.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>network-endpoint-groups<span class="w"> </span>create<span class="w"> </span>service-b-neg<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_B</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--region<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">REGION_B</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span>--network-endpoint-type<span class="o">=</span>serverless<span class="w"> </span>--cloud-run-service<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">SERVICE_B</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>backend-services<span class="w"> </span>create<span class="w"> </span>service-b-backend<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_B</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--global<span class="w"> </span>--load-balancing-scheme<span class="o">=</span>EXTERNAL_MANAGED
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>backend-services<span class="w"> </span>add-backend<span class="w"> </span>service-b-backend<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_B</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--global<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">  </span>--network-endpoint-group<span class="o">=</span>service-b-neg<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span>--network-endpoint-group-region<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">REGION_B</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div>
+<h3 id="4-managed-ssl-project_a">4. Managed SSL (<code>PROJECT_A</code>)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>ssl-certificates<span class="w"> </span>create<span class="w"> </span>lb-ssl-cert<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_A</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span>--domains<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="s2">,www.</span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--global
+</code></pre></div>
+<p>Certificate stays <code>PROVISIONING</code> until DNS points at the LB IP.</p>
+<h3 id="5-url-map-cross-project">5. URL map (cross-project)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>/tmp/lb-url-map.yaml<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="s">name: lb-url-map</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="s">defaultService: https://www.googleapis.com/compute/v1/projects/${PROJECT_A}/global/backendServices/service-a-backend</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="s">hostRules:</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="s">- hosts:</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="s">  - ${DOMAIN}</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="s">  - www.${DOMAIN}</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="s">  pathMatcher: lb-paths</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="s">pathMatchers:</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="s">- name: lb-paths</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="s">  defaultService: https://www.googleapis.com/compute/v1/projects/${PROJECT_A}/global/backendServices/service-a-backend</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="s">  routeRules:</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="s">  - priority: 1</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="s">    matchRules:</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="s">    - prefixMatch: ${PATH_PREFIX}</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="s">    routeAction:</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="s">      weightedBackendServices:</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="s">      - backendService: https://www.googleapis.com/compute/v1/projects/${PROJECT_B}/global/backendServices/service-b-backend</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="s">        weight: 100</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="s">EOF</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>url-maps<span class="w"> </span>import<span class="w"> </span>lb-url-map<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">  </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_A</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--source<span class="o">=</span>/tmp/lb-url-map.yaml<span class="w"> </span>--global<span class="w"> </span>--quiet
+</code></pre></div>
+<p>Adjust <code>PATH_PREFIX</code> to match the path your secondary app is served under.</p>
+<h3 id="6-https-http-redirect-frontends">6. HTTPS + HTTP redirect frontends</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>target-https-proxies<span class="w"> </span>create<span class="w"> </span>lb-https-proxy<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_A</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span>--url-map<span class="o">=</span>lb-url-map<span class="w"> </span>--ssl-certificates<span class="o">=</span>lb-ssl-cert<span class="w"> </span>--global
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>forwarding-rules<span class="w"> </span>create<span class="w"> </span>lb-https-forwarding-rule<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_A</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--global<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span>--load-balancing-scheme<span class="o">=</span>EXTERNAL_MANAGED<span class="w"> </span>--network-tier<span class="o">=</span>PREMIUM<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span>--address<span class="o">=</span>lb-static-ip<span class="w"> </span>--target-https-proxy<span class="o">=</span>lb-https-proxy<span class="w"> </span>--ports<span class="o">=</span><span class="m">443</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>/tmp/lb-http-redirect.yaml<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="s">name: lb-http-redirect</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="s">defaultUrlRedirect:</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="s">  httpsRedirect: true</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="s">  redirectResponseCode: MOVED_PERMANENTLY_DEFAULT</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="s">EOF</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>url-maps<span class="w"> </span>import<span class="w"> </span>lb-http-redirect<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">  </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_A</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--source<span class="o">=</span>/tmp/lb-http-redirect.yaml<span class="w"> </span>--global<span class="w"> </span>--quiet
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>target-http-proxies<span class="w"> </span>create<span class="w"> </span>lb-http-proxy<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">  </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_A</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--url-map<span class="o">=</span>lb-http-redirect<span class="w"> </span>--global
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>forwarding-rules<span class="w"> </span>create<span class="w"> </span>lb-http-forwarding-rule<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w">  </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_A</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--global<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="w">  </span>--load-balancing-scheme<span class="o">=</span>EXTERNAL_MANAGED<span class="w"> </span>--network-tier<span class="o">=</span>PREMIUM<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="w">  </span>--address<span class="o">=</span>lb-static-ip<span class="w"> </span>--target-http-proxy<span class="o">=</span>lb-http-proxy<span class="w"> </span>--ports<span class="o">=</span><span class="m">80</span>
+</code></pre></div>
+<h3 id="7-dns">7. DNS</h3>
+<ol>
+<li>Open your DNS provider's console for <code>DOMAIN</code>.</li>
+<li>Set A records pointing to the LB static IP (from step 2).</li>
+<li><strong>Remove</strong> any old Cloud Run domain mappings or <code>ghs.googlehosted.com</code> CNAME records that bypass the load balancer.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Host</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td><code>@</code></td>
+<td>LB static IP (e.g. <code>136.68.200.159</code>)</td>
+</tr>
+<tr>
+<td>A</td>
+<td><code>www</code></td>
+<td>same LB IP</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>After DNS points at the LB, delete existing Cloud Run domain mappings (they bypass the LB):</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>gcloud<span class="w"> </span>beta<span class="w"> </span>run<span class="w"> </span>domain-mappings<span class="w"> </span>list<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_A</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--region<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">REGION_A</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>gcloud<span class="w"> </span>beta<span class="w"> </span>run<span class="w"> </span>domain-mappings<span class="w"> </span>delete<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span>--region<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">REGION_A</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_A</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>gcloud<span class="w"> </span>beta<span class="w"> </span>run<span class="w"> </span>domain-mappings<span class="w"> </span>delete<span class="w"> </span><span class="s2">"www.</span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span>--region<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">REGION_A</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_A</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div>
+<ol>
+<li>Wait for the certificate to become <code>ACTIVE</code>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>ssl-certificates<span class="w"> </span>describe<span class="w"> </span>lb-ssl-cert<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_A</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--global<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span>--format<span class="o">=</span><span class="s1">'value(managed.status,managed.domainStatus)'</span>
+</code></pre></div>
+<h3 id="8-verify">8. Verify</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>dig<span class="w"> </span>+short<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>A<span class="w">   </span><span class="c1"># must equal LB IP</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>curl<span class="w"> </span>-sI<span class="w"> </span><span class="s2">"https://</span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="s2">/"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">15</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>curl<span class="w"> </span>-sI<span class="w"> </span><span class="s2">"https://</span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}${</span><span class="nv">PATH_PREFIX</span><span class="si">}</span><span class="s2">/"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">15</span>
+</code></pre></div>
+<hr />
+<h2 id="optional-cloud-nat-static-outbound-ip">Optional: Cloud NAT (static outbound IP)</h2>
+<p><strong>Not part of the load balancer.</strong> Use this when a Cloud Run service in <code>PROJECT_B</code> needs a <strong>fixed allowlisted egress IP</strong> for outbound calls to external APIs.</p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Name</th>
+<th>Example value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Regional static IP</td>
+<td><code>lb-nat-ip</code></td>
+<td><code>34.185.155.121</code></td>
+</tr>
+<tr>
+<td>Cloud Router</td>
+<td><code>lb-router</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Cloud NAT</td>
+<td><code>lb-nat</code></td>
+<td>Uses <code>lb-nat-ip</code></td>
+</tr>
+</tbody>
+</table>
+<p>See <a href="https://cloud.google.com/run/docs/configuring/static-outbound-ip">Static outbound IP (Cloud Run + NAT)</a> for setup commands.</p>
+<hr />
+<h2 id="common-issues">Common issues</h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gcloud run describe</code> fails in <code>PROJECT_A</code></td>
+<td>Service lives in <code>PROJECT_B</code></td>
+<td>Always pass <code>--project=PROJECT_B</code></td>
+</tr>
+<tr>
+<td>Path returns primary app <code>404</code> / wrong redirect</td>
+<td>DNS still on Cloud Run / <code>ghs.googlehosted.com</code>, not LB</td>
+<td>Point A records at LB IP; remove old CNAME</td>
+</tr>
+<tr>
+<td>Cert stuck <code>PROVISIONING</code></td>
+<td>DNS not on LB yet</td>
+<td>Fix DNS first</td>
+</tr>
+<tr>
+<td>Cross-project backend unreachable</td>
+<td>Missing IAM binding</td>
+<td>Grant <code>roles/compute.loadBalancerServiceUser</code> on <code>PROJECT_B</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="ops-checklist">Ops checklist</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Owner project</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LB frontend (IP, SSL, URL map, proxies)</td>
+<td><code>PROJECT_A</code></td>
+</tr>
+<tr>
+<td>Primary service NEG + backend</td>
+<td><code>PROJECT_A</code></td>
+</tr>
+<tr>
+<td>Secondary service NEG + backend</td>
+<td><code>PROJECT_B</code></td>
+</tr>
+<tr>
+<td>DNS A records</td>
+<td>Your DNS provider</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="rollback-high-level">Rollback (high level)</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Stop LB traffic</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>forwarding-rules<span class="w"> </span>delete<span class="w"> </span>lb-https-forwarding-rule<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span>--global<span class="w"> </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_A</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--quiet
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>gcloud<span class="w"> </span>compute<span class="w"> </span>forwarding-rules<span class="w"> </span>delete<span class="w"> </span>lb-http-forwarding-rule<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span>--global<span class="w"> </span>--project<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">PROJECT_A</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>--quiet
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># Point DNS back / recreate Cloud Run domain mappings if needed</span>
+</code></pre></div>
+<hr />
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://cloud.google.com/load-balancing/docs/https/setup-global-ext-https-serverless">HTTPS load balancing for Cloud Run (serverless NEG)</a></li>
+<li><a href="https://cloud.google.com/load-balancing/docs/https#cross-project">Cross-project service referencing</a></li>
+<li><a href="https://cloud.google.com/load-balancing/docs/negs/serverless-neg-concepts">Serverless NEG concepts</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
