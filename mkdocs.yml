@@ -86,6 +86,7 @@ nav:
   - GCP:
     - Installation & Authentication: gcp/installation-authentication.md
     - Docker Image: gcp/docker-image.md
+    - Load Balancer Setup: gcp/load-balancer.md
 
 extra:
   generator: false
