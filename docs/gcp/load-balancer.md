@@ -76,7 +76,7 @@ Cloud Run: SERVICE_B        Cloud Run: SERVICE_A
 
 | Resource | Name |
 |----------|------|
-| Global static IP | `lb-static-ip` |
+| Global static IP | `lb-static-ip` (e.g. `136.68.200.159`) |
 | Serverless NEG | `service-a-neg` (`REGION_A`) |
 | Backend service | `service-a-backend` |
 | Managed SSL cert | `lb-ssl-cert` (`example.com`, `www.example.com`) |
@@ -149,7 +149,7 @@ gcloud compute addresses describe lb-static-ip \
   --project="${PROJECT_A}" --global --format='value(address)'
 ```
 
-Save the IP address — you will need it for DNS.
+Save the IP address — you will need it for DNS. Example value: `136.68.200.159`.
 
 ### 3A. Primary service NEG + backend (`PROJECT_A`)
 
@@ -264,7 +264,7 @@ gcloud compute forwarding-rules create lb-http-forwarding-rule \
 
 | Type | Host | Value |
 |------|------|--------|
-| A | `@` | LB static IP |
+| A | `@` | LB static IP (e.g. `136.68.200.159`) |
 | A | `www` | same LB IP |
 
 4. After DNS points at the LB, delete existing Cloud Run domain mappings (they bypass the LB):
@@ -295,6 +295,20 @@ dig +short "${DOMAIN}" A   # must equal LB IP
 curl -sI "https://${DOMAIN}/" | head -n 15
 curl -sI "https://${DOMAIN}${PATH_PREFIX}/" | head -n 15
 ```
+
+---
+
+## Optional: Cloud NAT (static outbound IP)
+
+**Not part of the load balancer.** Use this when a Cloud Run service in `PROJECT_B` needs a **fixed allowlisted egress IP** for outbound calls to external APIs.
+
+| Resource | Name | Example value |
+|----------|------|---------------|
+| Regional static IP | `lb-nat-ip` | `34.185.155.121` |
+| Cloud Router | `lb-router` | |
+| Cloud NAT | `lb-nat` | Uses `lb-nat-ip` |
+
+See [Static outbound IP (Cloud Run + NAT)](https://cloud.google.com/run/docs/configuring/static-outbound-ip) for setup commands.
 
 ---
 
