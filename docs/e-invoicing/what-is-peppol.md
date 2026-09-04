@@ -20,7 +20,7 @@ Peppol consists of several layers that work together:
 | --- | --- |
 | **Peppol BIS** | Defines how business documents such as invoices are structured and exchanged |
 | **Access Points** | Connect organisations to the Peppol Network |
-| **SMP / SML** | Identify participants and determine which documents they can receive |
+| **Participant Directory (SMP / SML)** | Helps Peppol find a company and check which documents it can receive |
 | **Security** | Provides secure and trusted document exchange |
 | **Validation** | Checks whether documents comply with the applicable Peppol rules |
 

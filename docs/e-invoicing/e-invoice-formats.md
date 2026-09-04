@@ -39,11 +39,11 @@ A revised version of EN 16931 was approved on October 23, 2025, aligned with the
 
 An e-invoice is built in three layers. Each layer answers a different question: **What data is required? How is it structured? And what exact rules apply?**
 
-| Layer | Standard | What it defines | Example |
-| --- | --- | --- | --- |
-| **1. Semantics** | **EN 16931** | Defines **what invoice information must or can be present** | Invoice number, date, seller, buyer, VAT amount, currency |
-| **2. Syntax** | **UBL** | Defines **how the information is structured in XML** using elements, tags and hierarchy | `<cac:Country>`, `<cbc:ID>`, `<cbc:IssueDate>` |
-| **3. Profile & Rules** | **Peppol BIS Billing 3.0** | Defines **how UBL must be used for Peppol** — mandatory fields, business rules and allowed code values | `DE` = Germany, `EUR` = Euro |
+| Layer | Standard | What it defines | Example | ZUGFeRD |
+| --- | --- | --- | --- | --- |
+| **1. Semantics** | **EN 16931** | Defines **what invoice information must or can be present** | Invoice number, date, seller, buyer, VAT amount, currency | **ZUGFeRD uses EN 16931 semantic requirements** |
+| **2. Syntax** | **UBL** | Defines **how the information is structured in XML** using elements, tags and hierarchy | `<cac:Country>`, `<cbc:ID>`, `<cbc:IssueDate>` | **ZUGFeRD uses XML embedded in a PDF/A-3 file** |
+| **3. Profile & Rules** | **Peppol BIS Billing 3.0** | Defines **how UBL must be used for Peppol** — mandatory fields, business rules and allowed code values | `DE` = Germany, `EUR` = Euro | **ZUGFeRD profiles define how the embedded XML is used** |
 
 ### In simple terms
 

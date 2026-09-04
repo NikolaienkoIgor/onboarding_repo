@@ -79,7 +79,7 @@ nav:
     - E-Invoice Formats: e-invoicing/e-invoice-formats.md
     - What Is Peppol?: e-invoicing/what-is-peppol.md
     - What is ZUGFeRD?: e-invoicing/zugferd.md
-    - Schematron Validation: e-invoicing/schematron-validation.md
+    - Schematron for E-invoice Validations: e-invoicing/schematron-validation.md
     - Summary & Glossary: e-invoicing/summary-glossary.md
     - E-Invoicing Corner Models: e-invoicing/corner-models.md
   - GTM:
