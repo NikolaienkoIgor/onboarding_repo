@@ -12,13 +12,13 @@
         <meta name="author" content="Engineering Team">
       
       
-        <link rel="canonical" href="https://nikolaienkoigor.github.io/onboarding_repo/e-invoicing/zugferd/">
+        <link rel="canonical" href="https://nikolaienkoigor.github.io/onboarding_repo/e-invoicing/invoice-types/">
       
       
-        <link rel="prev" href="../what-is-peppol/">
+        <link rel="prev" href="../what-is-an-invoice/">
       
       
-        <link rel="next" href="../schematron-validation/">
+        <link rel="next" href="../why-e-invoicing/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>What is ZUGFeRD? - Onboarding Hub</title>
+        <title>Invoice Types - Onboarding Hub</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#what-is-zugferd" class="md-skip">
+        <a href="#invoice-types" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              What is ZUGFeRD?
+              Invoice Types
             
           </span>
         </div>
@@ -860,10 +860,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../invoice-types/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Invoice Types
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -879,6 +906,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ausgangsrechnung-outgoing-invoice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ausgangsrechnung — Outgoing Invoice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eingangsrechnung-incoming-invoice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eingangsrechnung — Incoming Invoice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gutschrift-credit-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gutschrift — Credit Note
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#very-simple-version-for-cards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Very simple version for cards
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -972,19 +1063,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../zugferd/" class="md-nav__link">
         
   
   
@@ -1000,7 +1082,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1351,6 +1432,58 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ausgangsrechnung-outgoing-invoice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ausgangsrechnung — Outgoing Invoice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eingangsrechnung-incoming-invoice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eingangsrechnung — Incoming Invoice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gutschrift-credit-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gutschrift — Credit Note
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#very-simple-version-for-cards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Very simple version for cards
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1375,43 +1508,41 @@
   
 
 
-<h1 id="what-is-zugferd">What is ZUGFeRD?</h1>
-<p><strong>ZUGFeRD</strong> is Germany's hybrid e-invoice format. It is a special PDF (<strong>PDF/A-3</strong>) that can contain other files inside it.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ZUGFeRD-Invoice.pdf   (PDF/A-3 container)
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── visible PDF (PDF/A-1)   — what a person sees
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>└── hidden XML file         — what a program reads
-</code></pre></div>
-<p>The visible PDF looks like a normal invoice. The hidden XML contains the same data — buyer, seller, line items, totals — in a structured form a machine can process without OCR.</p>
-<p><em>Simplified example of the hidden XML for the invoice in the previous chapter:</em></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">&lt;rsm:CrossIndustryInvoice</span><span class="w"> </span><span class="err">...</span><span class="nt">&gt;</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nt">&lt;rsm:ExchangedDocument&gt;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span><span class="nt">&lt;ram:ID&gt;</span>Invoice<span class="w"> </span>Number<span class="w"> </span>1234<span class="nt">&lt;/ram:ID&gt;</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="nt">&lt;ram:IssueDateTime&gt;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">            </span><span class="nt">&lt;udt:DateTimeString</span><span class="w"> </span><span class="na">format=</span><span class="s">"102"</span><span class="nt">&gt;</span>20-03-2025<span class="nt">&lt;/udt:DateTimeString&gt;</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="nt">&lt;/ram:IssueDateTime&gt;</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nt">&lt;/rsm:ExchangedDocument&gt;</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="nt">&lt;ram:SupplyChainTradeTransaction&gt;</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="nt">&lt;ram:ApplicableHeaderTradeAgreement&gt;</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">            </span><span class="nt">&lt;ram:SellerTradeParty&gt;</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">                </span><span class="nt">&lt;ram:Name&gt;</span>Kumar's<span class="w"> </span>Electronic<span class="w"> </span>Shop<span class="nt">&lt;/ram:Name&gt;</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">            </span><span class="nt">&lt;/ram:SellerTradeParty&gt;</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">            </span><span class="nt">&lt;ram:BuyerTradeParty&gt;</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">                </span><span class="nt">&lt;ram:Name&gt;</span>Anna<span class="w"> </span>Smith<span class="nt">&lt;/ram:Name&gt;</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">            </span><span class="nt">&lt;/ram:BuyerTradeParty&gt;</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="nt">&lt;/ram:ApplicableHeaderTradeAgreement&gt;</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">        </span><span class="nt">&lt;ram:IncludedSupplyChainTradeLineItem&gt;</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">            </span><span class="nt">&lt;ram:SpecifiedTradeProduct&gt;</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">                </span><span class="nt">&lt;ram:Name&gt;</span>Laptop<span class="nt">&lt;/ram:Name&gt;</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">            </span><span class="nt">&lt;/ram:SpecifiedTradeProduct&gt;</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">        </span><span class="nt">&lt;/ram:IncludedSupplyChainTradeLineItem&gt;</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="nt">&lt;/ram:SupplyChainTradeTransaction&gt;</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="nt">&lt;/rsm:CrossIndustryInvoice&gt;</span>
-</code></pre></div>
-<p>The tag names used here (<code>SellerTradeParty</code>, <code>BuyerTradeParty</code>, etc.) belong to a vocabulary called <strong>CII</strong> (Cross Industry Invoice), one of two XML formats used for e-invoices.</p>
-<div class="admonition tip">
-<p class="admonition-title">Why hybrid works</p>
-<p>The hybrid approach lets a person keep reading invoices normally while systems process the data underneath — this is the main advantage for small and medium businesses.</p>
-</div>
+<h1 id="invoice-types">Invoice Types</h1>
+<p>There are three common types of invoices in business processes:</p>
+<h2 id="ausgangsrechnung-outgoing-invoice">Ausgangsrechnung — Outgoing Invoice</h2>
+<p>An outgoing invoice is an invoice that a company <strong>sends to its customer</strong> for goods or services. It records money that the company expects to receive.</p>
+<h2 id="eingangsrechnung-incoming-invoice">Eingangsrechnung — Incoming Invoice</h2>
+<p>An incoming invoice is an invoice that a company <strong>receives from a supplier</strong> for goods or services. It records money that the company needs to pay.</p>
+<h2 id="gutschrift-credit-note">Gutschrift — Credit Note</h2>
+<p>A credit note is used to <strong>reduce or correct the amount of an existing invoice</strong>. For example, it can be issued for a returned product, an overcharge, or a cancelled service.</p>
+<h2 id="very-simple-version-for-cards">Very simple version for cards</h2>
+<table>
+<thead>
+<tr>
+<th>German</th>
+<th>English</th>
+<th>Simple explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ausgangsrechnung</strong></td>
+<td>Outgoing Invoice</td>
+<td>Invoice <strong>sent to a customer</strong></td>
+</tr>
+<tr>
+<td><strong>Eingangsrechnung</strong></td>
+<td>Incoming Invoice</td>
+<td>Invoice <strong>received from a supplier</strong></td>
+</tr>
+<tr>
+<td><strong>Gutschrift</strong></td>
+<td>Credit Note</td>
+<td><strong>Reduces or corrects</strong> an invoice amount</td>
+</tr>
+</tbody>
+</table>
 
 
 

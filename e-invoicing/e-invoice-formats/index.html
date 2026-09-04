@@ -863,6 +863,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../invoice-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Invoice Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../why-e-invoicing/" class="md-nav__link">
         
   
@@ -981,16 +1009,33 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#zugferd-vs-peppol" class="md-nav__link">
+    <nav class="md-nav" aria-label="Hybrid formats (CII-based)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-an-e-invoice-is-structured" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ZUGFeRD vs. Peppol
+        How an E-Invoice Is Structured
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-simple-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In simple terms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1441,16 +1486,33 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#zugferd-vs-peppol" class="md-nav__link">
+    <nav class="md-nav" aria-label="Hybrid formats (CII-based)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-an-e-invoice-is-structured" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ZUGFeRD vs. Peppol
+        How an E-Invoice Is Structured
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-simple-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In simple terms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1550,43 +1612,45 @@
 </tbody>
 </table>
 <hr />
-<h2 id="zugferd-vs-peppol">ZUGFeRD vs. Peppol</h2>
+<h3 id="how-an-e-invoice-is-structured">How an E-Invoice Is Structured</h3>
+<p>An e-invoice is built in three layers. Each layer answers a different question: <strong>What data is required? How is it structured? And what exact rules apply?</strong></p>
 <table>
 <thead>
 <tr>
-<th></th>
-<th>Peppol (BIS Billing, UBL-based)</th>
-<th>ZUGFeRD (CII)</th>
+<th>Layer</th>
+<th>Standard</th>
+<th>What it defines</th>
+<th>Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Setup</td>
-<td>Requires Access Point and network registration</td>
-<td>No setup — just generate a PDF</td>
+<td><strong>1. Semantics</strong></td>
+<td><strong>EN 16931</strong></td>
+<td>Defines <strong>what invoice information must or can be present</strong></td>
+<td>Invoice number, date, seller, buyer, VAT amount, currency</td>
 </tr>
 <tr>
-<td>Ease of use</td>
-<td>Technical onboarding required</td>
-<td>Works like a normal invoice</td>
+<td><strong>2. Syntax</strong></td>
+<td><strong>UBL</strong></td>
+<td>Defines <strong>how the information is structured in XML</strong> using elements, tags and hierarchy</td>
+<td><code>&lt;cac:Country&gt;</code>, <code>&lt;cbc:ID&gt;</code>, <code>&lt;cbc:IssueDate&gt;</code></td>
 </tr>
 <tr>
-<td>Typical flow</td>
-<td>Sent through the Peppol network</td>
-<td>Emailed or downloaded as a PDF</td>
-</tr>
-<tr>
-<td>Best fit</td>
-<td>Governments, multinationals, high-volume B2B</td>
-<td>Freelancers, SMEs, small suppliers</td>
+<td><strong>3. Profile &amp; Rules</strong></td>
+<td><strong>Peppol BIS Billing 3.0</strong></td>
+<td>Defines <strong>how UBL must be used for Peppol</strong> — mandatory fields, business rules and allowed code values</td>
+<td><code>DE</code> = Germany, <code>EUR</code> = Euro</td>
 </tr>
 </tbody>
 </table>
-<p>Both formats are legally EN 16931-compliant. Peppol suits large-scale, networked B2B operations but requires infrastructure most SMEs don't need. ZUGFeRD requires no new infrastructure and keeps the invoice human-readable.</p>
-<div class="admonition tip">
-<p class="admonition-title">Why Fintom8 uses ZUGFeRD</p>
-<p>Fintom8's PDF-to-hybrid-invoice converter is built around <strong>ZUGFeRD</strong> — it helps SMEs comply with the 2025/2028 mandates without added complexity.</p>
-</div>
+<h3 id="in-simple-terms">In simple terms</h3>
+<p><strong>EN 16931 → WHAT</strong></p>
+<p>What information belongs on the invoice?</p>
+<p><strong>UBL → HOW</strong></p>
+<p>How is that information represented in XML?</p>
+<p><strong>Peppol BIS → EXACT RULES</strong></p>
+<p>How exactly must the UBL invoice be structured and which values are allowed?</p>
 
 
 

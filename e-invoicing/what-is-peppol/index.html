@@ -863,6 +863,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../invoice-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Invoice Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../why-e-invoicing/" class="md-nav__link">
         
   
@@ -979,10 +1007,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
+  <a href="#how-peppol-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How it works
+        How Peppol Works
       
     </span>
   </a>
@@ -990,10 +1018,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-peppol-is-not" class="md-nav__link">
+  <a href="#peppol-is-more-than-a-network" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What Peppol is NOT
+        Peppol Is More Than a Network
       
     </span>
   </a>
@@ -1001,13 +1029,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-it-matters-for-fintom8" class="md-nav__link">
+  <a href="#peppol-bis-billing-30" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why it matters for Fintom8
+        Peppol BIS Billing 3.0
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Peppol BIS Billing 3.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-relationship-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The relationship is:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1400,10 +1445,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
+  <a href="#how-peppol-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How it works
+        How Peppol Works
       
     </span>
   </a>
@@ -1411,10 +1456,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-peppol-is-not" class="md-nav__link">
+  <a href="#peppol-is-more-than-a-network" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What Peppol is NOT
+        Peppol Is More Than a Network
       
     </span>
   </a>
@@ -1422,13 +1467,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-it-matters-for-fintom8" class="md-nav__link">
+  <a href="#peppol-bis-billing-30" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why it matters for Fintom8
+        Peppol BIS Billing 3.0
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Peppol BIS Billing 3.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-relationship-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The relationship is:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1464,34 +1526,56 @@
 <blockquote>
 <p>Instead of sending an invoice as a PDF by email, a company can send structured invoice data directly from its accounting/ERP system to the customer's system through Peppol.</p>
 </blockquote>
-<h2 id="how-it-works">How it works</h2>
-<p><strong>Company A (ERP)</strong></p>
+<h2 id="how-peppol-works">How Peppol Works</h2>
+<p>Peppol uses a <strong>four-corner model</strong>. A sender and receiver do not need to use the same software or service provider. Each organisation connects to one Peppol-certified Service Provider, which handles the exchange through the Peppol Network.</p>
+<p><img alt="Four-corner model" src="../../assets/corner-models/4-corner.png" /></p>
+<h2 id="peppol-is-more-than-a-network">Peppol Is More Than a Network</h2>
+<p>Peppol consists of several layers that work together:</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Peppol BIS</strong></td>
+<td>Defines how business documents such as invoices are structured and exchanged</td>
+</tr>
+<tr>
+<td><strong>Access Points</strong></td>
+<td>Connect organisations to the Peppol Network</td>
+</tr>
+<tr>
+<td><strong>SMP / SML</strong></td>
+<td>Identify participants and determine which documents they can receive</td>
+</tr>
+<tr>
+<td><strong>Security</strong></td>
+<td>Provides secure and trusted document exchange</td>
+</tr>
+<tr>
+<td><strong>Validation</strong></td>
+<td>Checks whether documents comply with the applicable Peppol rules</td>
+</tr>
+</tbody>
+</table>
+<p>The Peppol framework combines document specifications, messaging, addressing, capability lookup, packaging and security requirements.</p>
+<hr />
+<h2 id="peppol-bis-billing-30">Peppol BIS Billing 3.0</h2>
+<p>For e-invoicing, one of the most important specifications is <strong>Peppol BIS Billing 3.0</strong>.</p>
+<p>It is based on the European semantic standard <strong>EN 16931</strong> and uses <strong>UBL</strong> as the primary XML syntax. Peppol BIS adds the specific implementation rules, restrictions, code lists and validation rules required for invoices exchanged through Peppol.</p>
+<h3 id="the-relationship-is">The relationship is:</h3>
+<p><strong>EN 16931</strong></p>
+<p><em>Defines the meaning of the invoice data</em></p>
 <p>↓</p>
-<p><strong>Peppol Access Point</strong></p>
+<p><strong>UBL</strong></p>
+<p><em>Defines the XML structure</em></p>
 <p>↓</p>
-<p><strong>Peppol Network</strong></p>
-<p>↓</p>
-<p><strong>Customer's Access Point</strong></p>
-<p>↓</p>
-<p><strong>Company B (ERP)</strong></p>
-<p>Peppol standardizes <strong>how the documents are formatted, addressed, transported, and validated</strong>.</p>
-<h2 id="what-peppol-is-not">What Peppol is NOT</h2>
-<p>Peppol is <strong>not an invoice format itself</strong>.</p>
-<p>For example:</p>
-<ul>
-<li><strong>EN 16931</strong> → defines the semantic requirements for an electronic invoice</li>
-<li><strong>Peppol BIS Billing 3.0</strong> → defines how an invoice is exchanged within Peppol, based on EN 16931</li>
-<li><strong>UBL / XML</strong> → provides the actual machine-readable structure</li>
-<li><strong>Peppol</strong> → provides the network and rules for exchanging the document</li>
-</ul>
-<h2 id="why-it-matters-for-fintom8">Why it matters for Fintom8</h2>
-<p>A useful way to explain the relationship is:</p>
-<p><strong>ERP → Fintom8 → Peppol → Customer ERP</strong></p>
-<p>Fintom8 can work <strong>before the invoice enters the Peppol exchange process</strong>, making sure the document is correctly structured, converted, validated, and compliant.</p>
-<p>So, very simply:</p>
-<blockquote>
-<p><strong>Peppol is the infrastructure that lets businesses exchange standardized electronic documents with each other.</strong></p>
-</blockquote>
+<p><strong>Peppol BIS Billing 3.0</strong></p>
+<p><em>Defines how the structure must be used and validated within Peppol</em></p>
+<p>For example, Peppol BIS specifies mandatory invoice information such as invoice number, issue date, currency, seller and buyer information, as well as business rules for calculations and coded values.</p>
 
 
 
