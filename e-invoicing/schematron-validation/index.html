@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#schematron-for-e-invoice-validations" class="md-skip">
+        <a href="#schematron-validation" class="md-skip">
           Skip to content
         </a>
       
@@ -1063,10 +1063,32 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-are-xslt-files-the-skeletons" class="md-nav__link">
+  <a href="#validation-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What are XSLT files (the "skeletons")?
+        Validation flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#two-levels-of-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two levels of validation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fintom8s-validation-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fintom8's validation strategy
       
     </span>
   </a>
@@ -1434,10 +1456,32 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-are-xslt-files-the-skeletons" class="md-nav__link">
+  <a href="#validation-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What are XSLT files (the "skeletons")?
+        Validation flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#two-levels-of-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two levels of validation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fintom8s-validation-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fintom8's validation strategy
       
     </span>
   </a>
@@ -1470,148 +1514,89 @@
   
 
 
-<h1 id="schematron-for-e-invoice-validations"><strong>Schematron for E-invoice Validations</strong></h1>
-<p><a href="https://github.com/ConnectingEurope/eInvoicing-EN16931/tree/master">EN 16931 Schematron rules</a></p>
-<p><a href="https://github.com/OpenPEPPOL/peppol-bis-invoice-3/tree/master/rules/sch">OpenPeppol validation rules</a></p>
-<p><a href="https://schematron.com/document/455.html?utm_source=chatgpt.com">Schematron documentation</a></p>
-<p>Fintom8 toolkit utilizes <strong>EN 16931 Schematron Validation (CEN/TC 434)</strong> to ensure that every e-invoice is correct.</p>
-<p>Schematron validates XML schema, business rules, data consistency, and compliance logic to verify invoice accuracy and compliance, such as:</p>
+<h1 id="schematron-validation">Schematron Validation</h1>
+<p><strong>Schematron</strong> is the language used to express EN 16931's rules (e.g. "the invoice total must equal the sum of the line items") in a form that can be checked against an XML file.</p>
+<p><strong>XSLT files:</strong> Schematron rules are compiled into XSLT files — large, machine-executable files (15,000+ lines) containing the validation rules, error-location logic, error-reporting templates, and namespace handling. Fintom8 uses two:</p>
 <ul>
-<li>All required fields are present</li>
-<li>Totals and line items are consistent</li>
-<li>VAT and tax rules are correctly applied</li>
+<li><code>EN16931-CII-validation-xslt1.xsl</code> — for CII format</li>
+<li><code>EN16931-UBL-validation.xslt</code> — for UBL format</li>
 </ul>
-<h3 id="what-are-xslt-files-the-skeletons"><strong>What are XSLT files (the "skeletons")?</strong></h3>
-<p>The XSLT files in our repo are compiled Schematron validators. They are not the original Schematron rules, but XSLT 2.0 stylesheets generated from those rules.</p>
-<p>Think of it like this:</p>
-<ul>
-<li>Original Schematron rules: human-readable rules (e.g., "Invoice total must equal sum of line items")</li>
-<li>XSLT skeleton/compiled file: machine-executable code that checks those rules</li>
-</ul>
-<p>Our repository contains two compiled XSLT files:</p>
-<ul>
-<li><code>EN16931-CII-validation-xslt1.xsl</code> — for CII (Cross Industry Invoice) format</li>
-<li><code>EN16931-UBL-validation.xslt</code> — for UBL (Universal Business Language) format</li>
-</ul>
-<p>These files are large (15,000+ lines) because they include:</p>
-<ul>
-<li>The validation rules</li>
-<li>XPath generation logic (to locate errors in XML)</li>
-<li>Error reporting templates</li>
-<li>Namespace handling for different XML formats</li>
-</ul>
-<p><strong>What is SaxonPy/Saxonche?</strong></p>
-<p>SaxonPy is a Python wrapper for the Saxon XSLT processor. It runs XSLT transformations.</p>
-<p><strong>How it works together</strong></p>
-<ul>
+<p><strong>SaxonPy</strong> is a Python wrapper for the Saxon XSLT processor. It runs the actual validation.</p>
+<hr />
+<h2 id="validation-flow">Validation flow</h2>
+<ol>
 <li>User submits an XML invoice</li>
-<li>System checks if XML is well-formed</li>
-<li>System detects format (UBL or CII)</li>
-<li>System loads the appropriate XSLT file (pre-compiled)</li>
-<li>SaxonPy applies the XSLT to the XML</li>
-<li>XSLT produces SVRL output (validation report)</li>
-<li>System extracts failed assertions from SVRL</li>
-<li>System returns structured error list</li>
-</ul>
-<p><strong>Recommended monitoring strategy</strong></p>
-<ul>
-<li>Subscribe to Peppol BIS release notes for regular updates</li>
-<li>Check the CEF GitHub repository periodically for new versions</li>
-<li>Monitor CEN publications for standard revisions</li>
-</ul>
-<p><strong>CEN (European Committee for Standardization)</strong></p>
-<ul>
-<li>Source: Official EN 16931 standard publisher</li>
-<li>What to monitor: Standard revisions and publications</li>
-<li>Recent update: A revised version of EN 16931 was approved on October 23, 2025, aligning with the EU's "VAT in the Digital Age" (ViDA) initiative</li>
-</ul>
+<li>System checks the XML is well-formed</li>
+<li>System detects the format — UBL or CII</li>
+<li>System loads the matching XSLT file</li>
+<li>SaxonPy applies the XSLT to the invoice</li>
+<li>The XSLT produces an SVRL report (validation results)</li>
+<li>System extracts failed assertions from the SVRL</li>
+<li>System returns a structured list of errors</li>
+</ol>
 <hr />
-<h1 id="en16931-base-1315-vs-openpeppol-3020">EN16931 Base 1.3.15 vs. OpenPeppol 3.0.20</h1>
-<p>This report analyzes the synergy between two levels of validation: <strong>Semantic Core (EN16931)</strong> and <strong>Network Extension (Peppol BIS 3.0.20)</strong>. For the Fintom8 platform, this means moving from a simple check of "is this invoice legally valid" to "will this invoice be accepted by the Peppol network and the specific client."</p>
-<hr />
-<h2 id="1-the-overlap-224-common-rules-foundation">1. The Overlap: 224 Common Rules (Foundation)</h2>
-<p>These rules are identical in both specifications. They ensure legal compliance with EU Directive 2014/55/EU.</p>
-<p><strong>Key Categories:</strong></p>
-<ul>
-<li><strong>Mathematical Integrity:</strong></li>
-<li><code>BR-CO-10</code>: The sum of invoice lines must match the total (<code>BT-106</code>).</li>
-<li><code>BR-CO-16</code>: Amount payable calculation: <code>Total + Rounding - Paid</code>.</li>
-<li><strong>Mandatory Presence:</strong></li>
-<li><code>BR-01</code>: Every invoice must have a unique identifier (<code>BT-1</code>).</li>
-<li><code>BR-07</code>: Supplier name (<code>BT-27</code>) is mandatory.</li>
-<li><strong>VAT Rules:</strong></li>
-<li><code>BR-S-08</code>: If the standard VAT rate applies, the category code <code>S</code> must be specified.</li>
-<li><code>BR-IC-02</code>: For exports (Intra-community), the reason for tax exemption must be specified.</li>
-</ul>
-<hr />
-<h2 id="2-the-on-top-layer-145-peppol-rules-v3020">2. The "On-Top" Layer: 145 Peppol Rules (v3.0.20)</h2>
-<p>These are rules <strong>not present</strong> in the base version 1.3.x. Peppol added them to automate processes.</p>
-<p><strong>What Peppol adds on top of the base:</strong></p>
-<h3 id="a-technical-validation-of-addresses-eas-ids">A. Technical Validation of Addresses (EAS IDs)</h3>
-<ul>
-<li><strong>Base:</strong> Simply requires "provide some address."</li>
-<li><strong>Peppol 3.0.20:</strong> Requires "provide ONLY a code registered in Peppol (e.g., 0088 for GLN or 0213 for Ukraine)."</li>
-<li><strong>Outcome:</strong> Protects against invoice rejection due to outdated registries.</li>
-</ul>
-<h3 id="b-pdf-attachments-the-game-changer">B. PDF Attachments (The Game Changer)</h3>
-<ul>
-<li><strong>Base:</strong> Conservative about attachments.</li>
-<li><strong>Peppol 3.0.20:</strong> Has specific rules for <code>cac:AdditionalDocumentReference</code>. Binary content (PDFs or images) can now be sent directly in XML.</li>
-<li><strong>Benefit for Fintom8:</strong> Enables Hybrid Invoices, convenient for both machines and humans.</li>
-</ul>
-<h3 id="c-national-business-rules-country-specifics">C. National Business Rules (Country Specifics)</h3>
-<ul>
-<li><strong>Scandinavia:</strong> Includes the latest requirements for Denmark (DK) and Norway (NO) as of November 2025.</li>
-</ul>
-<hr />
-<h2 id="3-comparative-summary-table">3. Comparative Summary Table</h2>
+<h2 id="two-levels-of-validation">Two levels of validation</h2>
 <table>
 <thead>
 <tr>
-<th>Category</th>
+<th></th>
 <th>EN16931 Base (1.3.x)</th>
 <th>Peppol Extension (3.0.20)</th>
-<th>Added Value of 3.0.20</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Number of Rules</strong></td>
+<td>Rule count</td>
 <td>224</td>
-<td>369 (224 + 145)</td>
-<td>+65% risk coverage</td>
+<td><strong>369</strong> (224 + 145)</td>
 </tr>
 <tr>
-<td><strong>Scheme Codes (EAS)</strong></td>
-<td>Static / Outdated</td>
-<td>Dynamic (Updated 2025)</td>
-<td>Current identifiers</td>
+<td>Address codes</td>
+<td>Static, can go outdated</td>
+<td>Dynamic, network-validated</td>
 </tr>
 <tr>
-<td><strong>PDF Attachments</strong></td>
-<td>Limited / Risky</td>
-<td><strong>Full support</strong></td>
-<td>Fintom8 proprietary "feature"</td>
+<td>PDF attachments</td>
+<td>Limited</td>
+<td>Fully supported</td>
 </tr>
 <tr>
-<td><strong>VAT Validation</strong></td>
-<td>Legal level</td>
-<td>Network transmission level</td>
-<td>Now "Payment Ready"</td>
+<td>VAT validation</td>
+<td>Legal-level only</td>
+<td>Legal + network-transmission level</td>
 </tr>
 <tr>
-<td><strong>National Rules</strong></td>
+<td>National rules</td>
 <td>None</td>
 <td>40+ country-specific rules</td>
-<td>Easy entry to Scandinavian markets</td>
 </tr>
 </tbody>
 </table>
+<p>EN16931 Base contains the 224 rules required by EU Directive 2014/55/EU, including:</p>
+<ul>
+<li><code>BR-CO-10</code>: invoice line sum must match the total</li>
+<li><code>BR-CO-16</code>: amount payable = total + rounding − paid</li>
+<li><code>BR-01</code>: every invoice needs a unique ID</li>
+<li><code>BR-S-08</code>: standard VAT rate requires category code <code>S</code></li>
+</ul>
+<p>Peppol BIS (3.0.20) includes all 224 base rules plus 145 additional rules for network-level reliability:</p>
+<ul>
+<li>Stricter address codes (EAS IDs) instead of free-text addresses</li>
+<li>Rules for embedding binary content (PDF attachments) inside the XML</li>
+<li>Country-specific rules, e.g. added Denmark/Norway requirements in November 2025</li>
+</ul>
 <hr />
-<h2 id="conclusion-for-fintom8-strategic-choice">Conclusion for Fintom8 Strategic Choice</h2>
-<p>Using <strong>only the 224 base rules</strong> carries the risk of "False Positives."</p>
-<p><strong>Decision:</strong></p>
-<p>We use <strong>3.0.20 as the primary filter</strong>, since it includes all 224 base rules but adds critical protection against technical network errors. The tandem 1.3.15 + 3.0.20 guarantees that a corrected invoice will be paid.</p>
+<h2 id="fintom8s-validation-strategy">Fintom8's validation strategy</h2>
+<div class="admonition warning">
+<p class="admonition-title">Why base rules aren't enough</p>
+<p>Checking only the 224 base rules can produce a false positive — an invoice that passes but is later rejected for a technical or network reason. Fintom8 validates against the full <strong>Peppol 3.0.20</strong> rule set, since it includes the base rules plus the network-level checks needed for an invoice to actually be accepted and paid.</p>
+</div>
+<p><strong>Staying current:</strong></p>
+<ul>
+<li>Subscribe to <strong>Peppol BIS</strong> release notes</li>
+<li>Check the <strong>CEF GitHub repository</strong> for new XSLT versions</li>
+<li>Monitor <strong>CEN</strong> publications for EN 16931 revisions</li>
+</ul>
 
 
 
