@@ -1118,7 +1118,7 @@
   <span class="md-ellipsis">
     
   
-    Schematron Validation
+    Schematron for E-invoice Validations
   
 
     
@@ -1649,6 +1649,7 @@
 <th>Standard</th>
 <th>What it defines</th>
 <th>Example</th>
+<th>ZUGFeRD</th>
 </tr>
 </thead>
 <tbody>
@@ -1657,18 +1658,21 @@
 <td><strong>EN 16931</strong></td>
 <td>Defines <strong>what invoice information must or can be present</strong></td>
 <td>Invoice number, date, seller, buyer, VAT amount, currency</td>
+<td><strong>ZUGFeRD uses EN 16931 semantic requirements</strong></td>
 </tr>
 <tr>
 <td><strong>2. Syntax</strong></td>
 <td><strong>UBL</strong></td>
 <td>Defines <strong>how the information is structured in XML</strong> using elements, tags and hierarchy</td>
 <td><code>&lt;cac:Country&gt;</code>, <code>&lt;cbc:ID&gt;</code>, <code>&lt;cbc:IssueDate&gt;</code></td>
+<td><strong>ZUGFeRD uses XML embedded in a PDF/A-3 file</strong></td>
 </tr>
 <tr>
 <td><strong>3. Profile &amp; Rules</strong></td>
 <td><strong>Peppol BIS Billing 3.0</strong></td>
 <td>Defines <strong>how UBL must be used for Peppol</strong> — mandatory fields, business rules and allowed code values</td>
 <td><code>DE</code> = Germany, <code>EUR</code> = Euro</td>
+<td><strong>ZUGFeRD profiles define how the embedded XML is used</strong></td>
 </tr>
 </tbody>
 </table>
