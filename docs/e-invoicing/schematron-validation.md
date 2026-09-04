@@ -80,4 +80,11 @@ Peppol BIS (3.0.20) includes all 224 base rules plus 145 additional rules for ne
 - Monitor **CEN** publications for EN 16931 revisions
 
 
+---
 
+
+### Links
+
+- [EN 16931 Schematron rules](https://github.com/ConnectingEurope/eInvoicing-EN16931/tree/master)
+- [OpenPEPPOL validation rules](https://github.com/OpenPEPPOL/peppol-bis-invoice-3/tree/master/rules/sch)
+- [Schematron documentation](https://schematron.com/document/455.html?utm_source=chatgpt.com)
