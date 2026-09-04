@@ -6,47 +6,50 @@ Think of it like **a standardized postal system for businesses**:
 
 > Instead of sending an invoice as a PDF by email, a company can send structured invoice data directly from its accounting/ERP system to the customer's system through Peppol.
 
-## How it works
+## How Peppol Works
 
-**Company A (ERP)**
+Peppol uses a **four-corner model**. A sender and receiver do not need to use the same software or service provider. Each organisation connects to one Peppol-certified Service Provider, which handles the exchange through the Peppol Network.
+
+![Four-corner model](../assets/corner-models/4-corner.png)
+
+## Peppol Is More Than a Network
+
+Peppol consists of several layers that work together:
+
+| Layer | What it does |
+| --- | --- |
+| **Peppol BIS** | Defines how business documents such as invoices are structured and exchanged |
+| **Access Points** | Connect organisations to the Peppol Network |
+| **SMP / SML** | Identify participants and determine which documents they can receive |
+| **Security** | Provides secure and trusted document exchange |
+| **Validation** | Checks whether documents comply with the applicable Peppol rules |
+
+The Peppol framework combines document specifications, messaging, addressing, capability lookup, packaging and security requirements.
+
+---
+
+## Peppol BIS Billing 3.0
+
+For e-invoicing, one of the most important specifications is **Peppol BIS Billing 3.0**.
+
+It is based on the European semantic standard **EN 16931** and uses **UBL** as the primary XML syntax. Peppol BIS adds the specific implementation rules, restrictions, code lists and validation rules required for invoices exchanged through Peppol.
+
+### The relationship is:
+
+**EN 16931**
+
+*Defines the meaning of the invoice data*
 
 ↓
 
-**Peppol Access Point**
+**UBL**
+
+*Defines the XML structure*
 
 ↓
 
-**Peppol Network**
+**Peppol BIS Billing 3.0**
 
-↓
+*Defines how the structure must be used and validated within Peppol*
 
-**Customer's Access Point**
-
-↓
-
-**Company B (ERP)**
-
-Peppol standardizes **how the documents are formatted, addressed, transported, and validated**.
-
-## What Peppol is NOT
-
-Peppol is **not an invoice format itself**.
-
-For example:
-
-- **EN 16931** → defines the semantic requirements for an electronic invoice
-- **Peppol BIS Billing 3.0** → defines how an invoice is exchanged within Peppol, based on EN 16931
-- **UBL / XML** → provides the actual machine-readable structure
-- **Peppol** → provides the network and rules for exchanging the document
-
-## Why it matters for Fintom8
-
-A useful way to explain the relationship is:
-
-**ERP → Fintom8 → Peppol → Customer ERP**
-
-Fintom8 can work **before the invoice enters the Peppol exchange process**, making sure the document is correctly structured, converted, validated, and compliant.
-
-So, very simply:
-
-> **Peppol is the infrastructure that lets businesses exchange standardized electronic documents with each other.**
+For example, Peppol BIS specifies mandatory invoice information such as invoice number, issue date, currency, seller and buyer information, as well as business rules for calculations and coded values.

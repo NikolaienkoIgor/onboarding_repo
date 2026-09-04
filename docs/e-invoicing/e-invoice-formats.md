@@ -35,16 +35,26 @@ A revised version of EN 16931 was approved on October 23, 2025, aligned with the
 
 ---
 
-## ZUGFeRD vs. Peppol
+### How an E-Invoice Is Structured
 
-| | Peppol (BIS Billing, UBL-based) | ZUGFeRD (CII) |
-|---|---|---|
-| Setup | Requires Access Point and network registration | No setup — just generate a PDF |
-| Ease of use | Technical onboarding required | Works like a normal invoice |
-| Typical flow | Sent through the Peppol network | Emailed or downloaded as a PDF |
-| Best fit | Governments, multinationals, high-volume B2B | Freelancers, SMEs, small suppliers |
+An e-invoice is built in three layers. Each layer answers a different question: **What data is required? How is it structured? And what exact rules apply?**
 
-Both formats are legally EN 16931-compliant. Peppol suits large-scale, networked B2B operations but requires infrastructure most SMEs don't need. ZUGFeRD requires no new infrastructure and keeps the invoice human-readable.
+| Layer | Standard | What it defines | Example |
+| --- | --- | --- | --- |
+| **1. Semantics** | **EN 16931** | Defines **what invoice information must or can be present** | Invoice number, date, seller, buyer, VAT amount, currency |
+| **2. Syntax** | **UBL** | Defines **how the information is structured in XML** using elements, tags and hierarchy | `<cac:Country>`, `<cbc:ID>`, `<cbc:IssueDate>` |
+| **3. Profile & Rules** | **Peppol BIS Billing 3.0** | Defines **how UBL must be used for Peppol** — mandatory fields, business rules and allowed code values | `DE` = Germany, `EUR` = Euro |
 
-!!! tip "Why Fintom8 uses ZUGFeRD"
-    Fintom8's PDF-to-hybrid-invoice converter is built around **ZUGFeRD** — it helps SMEs comply with the 2025/2028 mandates without added complexity.
+### In simple terms
+
+**EN 16931 → WHAT**
+
+What information belongs on the invoice?
+
+**UBL → HOW**
+
+How is that information represented in XML?
+
+**Peppol BIS → EXACT RULES**
+
+How exactly must the UBL invoice be structured and which values are allowed?

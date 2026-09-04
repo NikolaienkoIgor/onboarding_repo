@@ -74,6 +74,7 @@ nav:
     - Task: development/task.md
   - E-Invoicing:
     - What Is an Invoice?: e-invoicing/what-is-an-invoice.md
+    - Invoice Types: e-invoicing/invoice-types.md
     - Why E-Invoicing?: e-invoicing/why-e-invoicing.md
     - E-Invoice Formats: e-invoicing/e-invoice-formats.md
     - What Is Peppol?: e-invoicing/what-is-peppol.md
