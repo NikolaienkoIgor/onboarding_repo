@@ -83,6 +83,7 @@ nav:
     - E-Invoicing Corner Models: e-invoicing/corner-models.md
   - GEO:
     - What is GEO?: geo/what-is-geo.md
+    - Website Guides: geo/website-guides.md
   - GCP:
     - Installation & Authentication: gcp/installation-authentication.md
     - Docker Image: gcp/docker-image.md
