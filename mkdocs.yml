@@ -84,6 +84,7 @@ nav:
     - E-Invoicing Corner Models: e-invoicing/corner-models.md
   - GTM:
     - What is GEO?: geo/what-is-geo.md
+    - Website Guides: geo/website-guides.md
     - Market Actors: geo/market-actors.md
   - GCP:
     - Installation & Authentication: gcp/installation-authentication.md
