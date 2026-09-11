@@ -82,6 +82,7 @@ nav:
     - Schematron for E-invoice Validations: e-invoicing/schematron-validation.md
     - Summary & Glossary: e-invoicing/summary-glossary.md
     - E-Invoicing Corner Models: e-invoicing/corner-models.md
+    - E-Invoice News: e-invoicing/e-invoice-news.md
   - GTM:
     - What is GEO?: geo/what-is-geo.md
     - Website Guides: geo/website-guides.md
