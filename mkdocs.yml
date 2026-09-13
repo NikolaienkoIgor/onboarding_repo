@@ -91,6 +91,8 @@ nav:
     - Installation & Authentication: gcp/installation-authentication.md
     - Docker Image: gcp/docker-image.md
     - Load Balancer Setup: gcp/load-balancer.md
+  - Philip's Repos:
+    - Helger Recent Repos: philip/helger-recent-repos.md
 
 extra:
   generator: false
