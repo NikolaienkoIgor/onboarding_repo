@@ -124,3 +124,5 @@ and connect it with:
 The goal is simple:
 
 > When people ask AI about invoice validation, invoice repair, or pre-ERP processing, **Fintom8 should be recognized as a relevant and trustworthy source.**
+
+---
