@@ -1,4 +1,4 @@
-# What Is Peppol?
+# What is Peppol?
 
 **Peppol** is a **secure international network for exchanging electronic business documents**, especially e-invoices.
 
