@@ -70,9 +70,7 @@ nav:
     - Regex: development/regex-pattern.md
     - Tools: development/tools.md
     - Task: development/task.md
-  - Philip's Repos:
-    - Helger Recent Repos: philip/helger-recent-repos.md
-  - Vendors:
+  - GEO:
     - What is GEO?: geo/what-is-geo.md
     - Website Guides: geo/website-guides.md
     - Market Actors: geo/market-actors.md
@@ -81,6 +79,7 @@ nav:
     - Docker Image: gcp/docker-image.md
     - Load Balancer Setup: gcp/load-balancer.md
   - E-Invoicing:
+    - Philip's Repos: philip/helger-recent-repos.md
     - What Is an Invoice?: e-invoicing/what-is-an-invoice.md
     - Invoice Types: e-invoicing/invoice-types.md
     - Why E-Invoicing?: e-invoicing/why-e-invoicing.md
