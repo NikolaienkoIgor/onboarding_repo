@@ -1,4 +1,4 @@
-# How Peppol Works with Hybrid E-Invoice Formats
+# Hybrid Formats in Peppol
 
 Hybrid e-invoices such as Factur-X and ZUGFeRD combine two formats in one document:
 
@@ -80,3 +80,9 @@ Base64 is not encryption. Security is provided by mechanisms such as HTTPS, digi
 - Peppol = standardized exchange network
 - AS4 = secure message transmission
 - Base64 = way to carry binary files inside text-based messages
+
+---
+
+## Important post
+
+[LinkedIn](https://www.linkedin.com/posts/bogdannafornita_after-the-french-champagne-has-sizzled-share-7501641325696409604-CID7/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAATWsfoBlBb8ta0aL18UEQa_GltTO8BF1ow)
