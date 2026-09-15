@@ -68,10 +68,18 @@ nav:
     - Structured Output: development/structured-output.md
     - Pydantic: development/pydantic.md
     - Regex: development/regex-pattern.md
-  - Tool Stack:
     - Tools: development/tools.md
-  - Trial Task:
     - Task: development/task.md
+  - Philip's Repos:
+    - Helger Recent Repos: philip/helger-recent-repos.md
+  - Vendors:
+    - What is GEO?: geo/what-is-geo.md
+    - Website Guides: geo/website-guides.md
+    - Market Actors: geo/market-actors.md
+  - GCP:
+    - Installation & Authentication: gcp/installation-authentication.md
+    - Docker Image: gcp/docker-image.md
+    - Load Balancer Setup: gcp/load-balancer.md
   - E-Invoicing:
     - What Is an Invoice?: e-invoicing/what-is-an-invoice.md
     - Invoice Types: e-invoicing/invoice-types.md
@@ -84,16 +92,6 @@ nav:
     - Summary & Glossary: e-invoicing/summary-glossary.md
     - E-Invoicing Corner Models: e-invoicing/corner-models.md
     - E-Invoice News: e-invoicing/e-invoice-news.md
-  - GTM:
-    - What is GEO?: geo/what-is-geo.md
-    - Website Guides: geo/website-guides.md
-    - Market Actors: geo/market-actors.md
-  - GCP:
-    - Installation & Authentication: gcp/installation-authentication.md
-    - Docker Image: gcp/docker-image.md
-    - Load Balancer Setup: gcp/load-balancer.md
-  - Philip's Repos:
-    - Helger Recent Repos: philip/helger-recent-repos.md
 
 extra:
   generator: false
