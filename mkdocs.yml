@@ -68,29 +68,32 @@ nav:
     - Structured Output: development/structured-output.md
     - Pydantic: development/pydantic.md
     - Regex: development/regex-pattern.md
+  - Tool Stack:
     - Tools: development/tools.md
+  - Trial Task:
     - Task: development/task.md
-  - GEO:
-    - What is GEO?: geo/what-is-geo.md
-    - Website Guides: geo/website-guides.md
-    - Market Actors: geo/market-actors.md
+  - GTM:
+    - What is GEO?: gtm/what-is-geo.md
+    - Website Guides: gtm/website-guides.md
+    - Market Actors: gtm/market-actors.md
+    - E-Invoice Products: gtm/tools.md
+    - Tool Vendors: gtm/tool-vendors.md
   - GCP:
     - Installation & Authentication: gcp/installation-authentication.md
     - Docker Image: gcp/docker-image.md
     - Load Balancer Setup: gcp/load-balancer.md
   - E-Invoicing:
-    - Philip's Repos: philip/helger-recent-repos.md
     - What Is an Invoice?: e-invoicing/what-is-an-invoice.md
-    - Invoice Types: e-invoicing/invoice-types.md
     - Why E-Invoicing?: e-invoicing/why-e-invoicing.md
     - E-Invoice Formats: e-invoicing/e-invoice-formats.md
     - What is Peppol?: e-invoicing/what-is-peppol.md
-    - Hybrid Formats in Peppol: e-invoicing/hybrid-formats-in-peppol.md
+    - France: e-invoicing/hybrid-formats-in-peppol.md
+    - Germany: e-invoicing/Germany.md
     - What is ZUGFeRD?: e-invoicing/zugferd.md
-    - Schematron for E-invoice Validations: e-invoicing/schematron-validation.md
-    - Summary & Glossary: e-invoicing/summary-glossary.md
+    - Schematron: e-invoicing/schematron-validation.md
     - E-Invoicing Corner Models: e-invoicing/corner-models.md
     - E-Invoice News: e-invoicing/e-invoice-news.md
+    - Philip's Repos: philip/helger-recent-repos.md
 
 extra:
   generator: false
