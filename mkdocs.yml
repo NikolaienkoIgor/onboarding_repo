@@ -68,9 +68,7 @@ nav:
     - Structured Output: development/structured-output.md
     - Pydantic: development/pydantic.md
     - Regex: development/regex-pattern.md
-  - Tool Stack:
     - Tools: development/tools.md
-  - Trial Task:
     - Task: development/task.md
   - GTM:
     - What is GEO?: gtm/what-is-geo.md
