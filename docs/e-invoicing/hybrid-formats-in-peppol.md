@@ -1,4 +1,4 @@
-# Hybrid Formats in Peppol
+# France
 
 Hybrid e-invoices such as Factur-X and ZUGFeRD combine two formats in one document:
 
