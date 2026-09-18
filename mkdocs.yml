@@ -85,7 +85,7 @@ nav:
     - Why E-Invoicing?: e-invoicing/why-e-invoicing.md
     - E-Invoice Formats: e-invoicing/e-invoice-formats.md
     - What is Peppol?: e-invoicing/what-is-peppol.md
-    - France: e-invoicing/hybrid-formats-in-peppol.md
+    - France: e-invoicing/France.md
     - Germany: e-invoicing/Germany.md
     - What is ZUGFeRD?: e-invoicing/zugferd.md
     - Schematron: e-invoicing/schematron-validation.md
