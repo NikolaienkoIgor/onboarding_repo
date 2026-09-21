@@ -70,6 +70,7 @@ nav:
     - Regex: development/regex-pattern.md
     - Tools: development/tools.md
     - Task: development/task.md
+    - Interview Challenge: development/interview-challenge.md
   - GTM:
     - What is GEO?: gtm/what-is-geo.md
     - Website Guides: gtm/website-guides.md
