@@ -4,7 +4,7 @@
 
 At **Fintom8 AI**, we build agentic Pre-ERP document intelligence systems. Our microservices validate, correct, and enrich messy business document data before it touches core systems like SAP or DATEV.
 
-In this coding challenge, you will design and implement a LangGraph-based validation agent in Python inside VS Code. Your agent will ingest a synthetic real-estate invoice PDF (*AlpenHäuser Immobilien GmbH invoice* provided in your assignment packet) and run multi-step semantic and mathematical validations.
+In this coding challenge, you will design and implement a LangGraph-based validation agent in Python inside VS Code. Your agent will ingest a synthetic real-estate invoice PDF ([*AlpenHäuser Immobilien GmbH invoice*](../assets/invoices/Alpen_berens.pdf)) and run multi-step semantic and mathematical validations.
 
 ### The Task
 Using **LangGraph** (and preferably **Google Gemini** via `LangChain` / `Google GenAI`), build an autonomous state machine that processes the invoice and executes the validation pipeline.
