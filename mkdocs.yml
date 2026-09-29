@@ -87,13 +87,15 @@ nav:
     - E-Invoice Formats: e-invoicing/e-invoice-formats.md
     - What is Peppol?: e-invoicing/what-is-peppol.md
     - France: e-invoicing/France.md
-    - Germany: e-invoicing/Germany.md
-    - Mandatory Zugferd Fields: e-invoicing/mandatory-zugferd-fields.md
     - What is ZUGFeRD?: e-invoicing/zugferd.md
     - Schematron: e-invoicing/schematron-validation.md
     - E-Invoicing Corner Models: e-invoicing/corner-models.md
     - E-Invoice News: e-invoicing/e-invoice-news.md
     - Philip's Repos: philip/helger-recent-repos.md
+  - Germany:
+    - E-Invoicing in Germany: germany/e-invoicing-in-Germany.md
+    - 12 Core Requirements: germany/12-Core-Requirements.md
+    - Mandatory ZUGFeRD Fields: germany/mandatory-zugferd-fields.md
 
 extra:
   generator: false
