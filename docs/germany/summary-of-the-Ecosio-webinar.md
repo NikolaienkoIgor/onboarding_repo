@@ -33,7 +33,7 @@ Every invoice is checked in three steps: well-formedness, schema conformance, an
 
 VAT law and EN 16931 set only the baseline. Buyers want automated matching and exception-free posting, so a compliant invoice can still be rejected or delayed. In a poll, the biggest expected difficulties were managing rejections and corrections (48%) and meeting different customers' requirements (42%).
 
-Data governance enables scale
+## Data governance enables scale
 
 Most problems come from fragmented data rather than technology. Only 24% of attendees have shared responsibility with clear handovers, and 49% have shared responsibility with gaps. Finance, tax, sales, procurement, operations and IT each hold part of the data. The remedy is central governance built on:
 
