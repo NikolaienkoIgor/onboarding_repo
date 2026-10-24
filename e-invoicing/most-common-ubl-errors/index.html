@@ -25,18 +25,18 @@
       
       
       <link rel="icon" href="../../assets/no8box_logo.jpg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
-        <title>Most common errors occurring in UBL invoices - Onboarding Hub</title>
+        <title>Common UBL errors - Onboarding Hub</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#most-common-errors-occurring-in-ubl-invoices" class="md-skip">
+        <a href="#common-ubl-errors" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Most common errors occurring in UBL invoices
+              Common UBL errors
             
           </span>
         </div>
@@ -1363,7 +1363,7 @@
   <span class="md-ellipsis">
     
   
-    Most common errors occurring in UBL invoices
+    Common UBL errors
   
 
     
@@ -1602,29 +1602,11 @@
   
 
 
-<h1 id="most-common-errors-occurring-in-ubl-invoices">Most common errors occurring in UBL invoices</h1>
+<h1 id="common-ubl-errors">Common UBL errors</h1>
 <p>These are the errors that show up most often when a UBL invoice is checked. The code is the rule or identifier that reports the problem.</p>
 <style>
-.md-typeset__scrollwrap table {
-  width: 100%;
-  table-layout: fixed;
-}
-.md-typeset__scrollwrap th,
-.md-typeset__scrollwrap td {
-  padding: 0.4em 0.55em;
-}
-.md-typeset__scrollwrap th:nth-child(1),
-.md-typeset__scrollwrap td:nth-child(1) {
-  width: 6%;
+.md-typeset table:not([class]) th:first-child {
   min-width: 0;
-}
-.md-typeset__scrollwrap th:nth-child(2),
-.md-typeset__scrollwrap td:nth-child(2) {
-  width: 22%;
-}
-.md-typeset__scrollwrap th:nth-child(3),
-.md-typeset__scrollwrap td:nth-child(3) {
-  width: 20%;
 }
 </style>
 
@@ -1698,6 +1680,12 @@
 <td><code>xsi:schemaLocation</code></td>
 <td>The XML contains an unnecessary schema-location hint, potentially including a local development path.</td>
 </tr>
+<tr>
+<td>11</td>
+<td><strong>Empty Buyer Reference</strong> <em>(Missing Data)</em></td>
+<td><code>PEPPOL-EN16931-R008</code>, <code>PEPPOL-EN16931-R003</code> <em>(BT-10)</em></td>
+<td>The <code>&lt;cbc:BuyerReference&gt;</code> tag is present but contains no value. Either supply the customer's actual routing/reference ID, or remove the tag entirely if an Order Reference (<code>cac:OrderReference/cbc:ID</code>) is provided instead.</td>
+</tr>
 </tbody>
 </table>
 
@@ -1756,10 +1744,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
       
     
   </body>
