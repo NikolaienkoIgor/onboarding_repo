@@ -45,16 +45,11 @@ An e-invoice is built in three layers. Each layer answers a different question: 
 | **2. Syntax** | **UBL** | Defines **how the information is structured in XML** using elements, tags and hierarchy | `<cac:Country>`, `<cbc:ID>`, `<cbc:IssueDate>` | **ZUGFeRD uses XML embedded in a PDF/A-3 file** |
 | **3. Profile & Rules** | **Peppol BIS Billing 3.0** | Defines **how UBL must be used for Peppol** — mandatory fields, business rules and allowed code values | `DE` = Germany, `EUR` = Euro | **ZUGFeRD profiles define how the embedded XML is used** |
 
-### In simple terms
+### Types of Invoices
 
-**EN 16931 → WHAT**
-
-What information belongs on the invoice?
-
-**UBL → HOW**
-
-How is that information represented in XML?
-
-**Peppol BIS → EXACT RULES**
-
-How exactly must the UBL invoice be structured and which values are allowed?
+| Types | Who Issues it | Why it is used |
+| --- | --- | --- |
+| Self-billing Invoice (389) | Buyer / Customer | A seller is the party that sends an invoice requesting payment, but In self-billing, the buyer calculates the amount owed and creates the invoice themselves and sends a copy to the seller and transfer the money. |
+| Credit Note (381) | Seller / Vendor | An updated invoice that reduces the amount owed, provides a refund, or cancels an invoice previously issued by the seller. |
+| Commercial invoice (380) | Seller | A standard invoice for products delivered, hours worked, or projects completed. |
+| Commission Note (382) | An agent, broker or an intermediator | An invoice used to settle a commission or brokerage fee. |
