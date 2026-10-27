@@ -1,10 +1,13 @@
 # Tutorials Creation Process
 
-## Step 1: Topic and Prompt
-Find an interesting topic from the source. Create an informative and factual text based on it that can be read in 90 seconds or less. To do this, use AI with a prompts like **"Write a script for a 90 seconds video, without any directorial decisions and based on this source, for people who don't know whaat this is"**, in German, and then be sure to edit it yourself.
+## Step 1: Topic and Script
+Find an interesting topic from the source. Create an informative and factual text based on it that can be read in 90 seconds or less. To do this, use AI with a prompts like:
+>**"Write an engaging, conversational, yet authoritative B2B explainer in German for German business professionals about ... . Start with a hook highlighting that ... . Systematically explain the ... , sequential paragraphs without using bullet points. Incorporate specific international and national examples for each ... . Conclude with a strong summary sentence on ... ."**,
+
+in German, and then be sure to edit it yourself.
 
 ## Step 2: Record the Video
-Record a video where a person reads the text clearly and expressively. In our case, we used Igor Nikolaienko, who presented the information in the video.
+Record a video where a person reads the text clearly and expressively.
 
 ## Step 3: Edit the Video in CapCut
 Next, we open **CapCut** and remove the background from the original video. Then, we add our own background, which is an office background generated with AI.
@@ -16,7 +19,7 @@ After that, we separate the audio from the video. We also add quiet background m
 Next, we add animations and text to the video to make the tutorial more interesting and easier to understand. This should be a simple animation where something appears, created in **Canva** or **CapCut** (example: a step-by-step visualization of a model).
 
 ## Step 6: Add Subtitles
-Subtitles are also very important. CapCut automatically generates subtitles and synchronizes them well with the audio, but the text is not always accurate. Therefore, we keep the original subtitle timing and replace the generated text with our own correct script.
+In **CapCut**, automatically generate subtitles and synchronize them with the audio, but you must verify the text for accuracy. Keep the original subtitle timing, replace the generated text with your own correct script, and save the changes.
 
 ## Step 7: Export the Video and Subtitle File
 We export the finished video and the subtitle file in **SRT format**. Usually, versions of the video with and without subtitles are required, along with an srt file in German and English languages, we translate the srt file using AI. Then, we upload both files to Google Drive so they can be accessed and shared easily.
