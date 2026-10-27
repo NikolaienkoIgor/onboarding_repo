@@ -77,7 +77,7 @@ nav:
     - Market Actors: gtm/market-actors.md
     - E-Invoice Products: gtm/tools.md
     - Tool Vendors: gtm/tool-vendors.md
-    - Tutorial Creation Process: gtm/Tutorial-Creation-Process.md
+    - Tutorial Creation Process: gtm/tutorial-creation-process.md
   - GCP:
     - Installation & Authentication: gcp/installation-authentication.md
     - Docker Image: gcp/docker-image.md
