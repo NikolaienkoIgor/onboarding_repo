@@ -76,6 +76,9 @@ nav:
     - Market Actors: gtm/market-actors.md
     - E-Invoice Products: gtm/tools.md
     - Tool Vendors: gtm/tool-vendors.md
+  - Products:
+    - Overview: products/index.md
+    - Corrector: products/corrector.md
   - GCP:
     - Installation & Authentication: gcp/installation-authentication.md
     - Docker Image: gcp/docker-image.md
