@@ -81,6 +81,7 @@ nav:
   - Products:
     - Overview: products/index.md
     - Corrector: products/corrector.md
+    - eFTI: products/eFTI.md
   - GCP:
     - Installation & Authentication: gcp/installation-authentication.md
     - Docker Image: gcp/docker-image.md
