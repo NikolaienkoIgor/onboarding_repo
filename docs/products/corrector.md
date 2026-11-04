@@ -45,50 +45,33 @@ Sizing for **Corrector on Qwen3 8B** with **3 LLM checks**, quantized **Q4_K_M /
 
 Recommend **≥16 GB system RAM** even with a GPU (OS, Docker, API, KV headroom). Prefer **≥8k context** for Corrector prompts; default 4k can truncate large invoices.
 
-### Recommended tiers
+### Dell on-prem sizing (S / M / L)
 
-#### 1. CPU-only Linux server (no GPU)
+What from a **Dell PowerEdge** build matches Corrector on **Qwen3 8B** (3 LLM checks), relative to cloud Gemini *speed* (not Gemini accuracy).
 
-Usable for **internal / low concurrency** tooling — not for high-traffic interactive UX.
+Prices = **net B2B Germany (~2026)** list / market ranges. Shared chassis base from Dell R760 quotes; GPU choices differentiate the tiers.
 
-| Spec | Minimum | Comfortable |
-|------|---------|-------------|
-| CPU | 8+ cores modern Xeon / EPYC / Ryzen | 16+ cores, high memory bandwidth |
-| RAM | 16 GB | 32 GB |
-| Disk | 20 GB free (images + model) | SSD/NVMe |
-| Expected decode | ~**8–20 tok/s** (Q4/Q5, good server CPU) | — |
-| Corrector (3 attempts) | Often **several minutes** end-to-end | Acceptable for batch / async |
+| | **S — CPU** | **M — GPU** | **L — more GPU** |
+|---|-------------|-------------|------------------|
+| **Fit for Corrector** | Batch / internal / async only | Interactive single-user / small team | Concurrent jobs, longer context, room for larger models later |
+| **Processing time** (typical Peppol UBL, up to 3 LLM checks, Q4/Q5, thinking off) | **~3–10+ min** (~8–20 tok/s) | **~30 s – 2 min** (~50–100 tok/s) | **~15–60 s** (~100–200+ tok/s on 8B; headroom) |
+| **vs Gemini 3.5 Flash latency** | Much slower | Same *order of magnitude* for single jobs | Closest local feel; still not identical cloud SLA |
+| **Equipment** | Dell PowerEdge **R760** 2U · 2× Xeon Silver **4410Y** (12c/24t) · **128 GB** DDR5 ECC · dual redundant PSU (e.g. 1100–1400 W class) · BOSS-N1 + 2× M.2 NVMe RAID 1 · dual 10GbE · **no GPU** · ProSupport 3y | Same R760 base · **1× NVIDIA L4 24 GB** (or **RTX 4000 Ada 20 GB** as cheaper workstation/server GPU) · GPU riser / cables / shrouds · stronger PSU if required · ProSupport 3y | Same R760 base · **1× NVIDIA L40S 48 GB** · Dell GPU riser kit + Gen5 power + air shrouds · **2× 2400 W** Titanium/Platinum hot-plug (dual-GPU ready) · ProSupport 3y Mission Critical |
+| **Equipment price (net, per major piece)** | Chassis+board+iDRAC: **€3.8k–4.5k** · 2× CPU: **€1.4k–1.8k** · 128 GB RAM: **€0.7k–0.95k** · PSUs: **€0.5k–0.8k** · Boot RAID: **€0.65k–0.85k** · 10GbE: **€0.35k–0.5k** · ProSupport: **€1.8k–2.5k** | Base as S (PSU often **€0.7k–1.0k**) · **L4**: **€4.5k–6.0k** *or* **RTX 4000 Ada**: **€2.0k–2.5k** · GPU kit: **€0.4k–0.7k** · ProSupport: **€2.2k–3.0k** | Chassis: **€3.8k–4.5k** · 2× CPU: **€1.4k–1.8k** · RAM: **€0.7k–0.95k** · 2× 2400 W PSU: **€0.8k–1.1k** · **L40S**: **€10.5k–12.0k** · GPU kit: **€0.6k–0.9k** · Boot RAID: **€0.65k–0.85k** · 10GbE: **€0.35k–0.5k** · ProSupport: **€2.4k–3.2k** |
+| **Hardware investment total (net)** | **~€9.5k – €12.5k** | **~€15k – €20k** (with L4) · **~€13k – €17k** (with RTX 4000 Ada) | **~€21k – €26k** |
 
-!!! tip "What “Linux server” means"
-    A machine that **runs Linux natively** (cloud VM, bare metal, or office server you SSH into) — **not** a Linux container on Apple Silicon Docker. Mac Docker Ollama is CPU-in-a-VM and can be ~0.3 tok/s; that is not representative of Xeon/EPYC host performance.
+!!! tip "Which Dell tier matches our local Corrector setup?"
+    Compose + **Qwen3 8B** for Corrector maps most cleanly to **M (1× L4 / RTX 4000 Ada)**: enough VRAM for Q4/Q5 at 8k context and latency near cloud for single jobs. **S** is only for queued/batch. **L (L40S)** is overkill for 8B alone but right if you want concurrency, Qwen 32B later, or dual-GPU expansion.
 
-#### 2. Single NVIDIA GPU (recommended for local / on-prem interactive Corrector)
+!!! note "Price sources"
+    **L** component ranges follow DE B2B market quotes for R760 + L40S (2026). **M** GPU bands from EU reseller list prices (L4 ~€4.5k–6k; RTX 4000 Ada ~€2.0k–2.5k excl. VAT). **S** is the same R760 BOM without GPU/GPU kit and with lighter PSUs. Always re-quote Dell/reseller — list prices move.
 
-| Spec | Entry (acceptable) | Recommended (closer to cloud *speed*) |
-|------|--------------------|----------------------------------------|
-| GPU | **RTX 4060 8 GB** (or similar 8 GB Ada/Ampere) | **RTX 4070 Ti / 4080 / L4 24 GB** |
-| VRAM | 8 GB (Q4_K_M fits fully) | 12–24 GB (headroom for longer context / Q5) |
-| System RAM | 16 GB | 32 GB |
-| Expected decode (Q4_K_M) | ~**30–45 tok/s** | ~**50–100+ tok/s** |
-| Corrector (3 attempts) | Roughly **~1–3 minutes** typical | Closer to **tens of seconds–~2 minutes** |
-
-Rough wall-clock intuition (order of magnitude, single stream):
-
-| Hardware | ~tok/s | One 1.5k-token generation | Up to 3 LLM checks |
-|----------|--------|---------------------------|--------------------|
-| Weak / nested Docker CPU | ~0.3–2 | Many minutes | Hours (impractical) |
-| Server CPU Q4/Q5 | ~8–20 | ~1–3 min | ~3–10+ min |
-| RTX 4060 class | ~30–45 | ~30–50 s | ~2–4 min worst case |
-| High-end / datacenter GPU | ~80–120+ | ~15–20 s | Often under ~1–2 min |
-
-Cloud Gemini will still often win on **tail latency** and **consistency** under load; local GPU aims for **same order of magnitude** for single-user Corrector, not identical SLA.
-
-#### 3. If you need accuracy closer to Gemini 3.5
+### If you need accuracy closer to Gemini 3.5
 
 | Approach | Hardware implication |
 |----------|----------------------|
 | Stay on **Gemini 3.5 Flash** (cloud) | No local GPU; API latency only |
-| Larger open weights (e.g. **Qwen3 32B** Q4) | Typically **≥24 GB VRAM** (4090 / L40 / A10-class) |
+| Larger open weights (e.g. **Qwen3 32B** Q4) | Prefer **M with L4** minimum; **L (L40S)** more comfortable |
 | Qwen3 8B only | Expect **weaker** Schematron-fix success vs Gemini on hard invoices |
 
 ### Concurrency
