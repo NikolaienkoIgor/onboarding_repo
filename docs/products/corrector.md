@@ -1,107 +1,135 @@
 # Corrector
 
-Corrector repairs invalid Peppol BIS / UBL invoice XML (and related EN 16931 paths) by looping **LLM correction → Schematron/XSD validation** until the document passes or the attempt budget is exhausted.
+Corrector fixes invalid Peppol BIS / UBL invoice XML (and related EN 16931 files). It asks the language model to rewrite the XML, then checks it with Schematron/XSD. That repeats until the file is valid or we hit the retry limit (usually **3** model calls).
 
-Typical cloud configuration today uses **Gemini 3.5 Flash** with **`max_attempts = 3`** (up to three LLM correction rounds per request). Self-hosted deployments commonly target **Qwen3 8B** (Ollama / llama.cpp, quantized GGUF).
+**Cloud today:** **Gemini 3.5 Flash**  
+**On the customer’s own server:** usually **Qwen3 8B** (Ollama / llama.cpp)
 
 ---
 
-## How a request spends LLM budget
+## Baseline (cloud)
 
-For a typical Peppol UBL Corrector job with **3 LLM checks**:
+The speed and quality baseline for Corrector is **Gemini 3.5 Flash** in the cloud.
 
-| Step | What happens | Rough token shape (order of magnitude) |
-|------|----------------|----------------------------------------|
-| Attempt 1–3 | LLM rewrites XML from validation errors | ~1.5–3k prompt + ~1–2k completion **per attempt** |
-| Optional compare | Structural/XML compare after a successful artifact | One extra LLM call |
+| Metric | Baseline |
+|--------|----------|
+| **Model** | **Gemini 3.5 Flash** (cloud) |
+| **Corrector time** | **~30 seconds** |
+| **Input tokens** (per model call) | **~6k** |
+| **Output tokens** (per model call) | **~2k** |
 
-Worst case ≈ **3 full correction generations** (+ compare). Wall-clock time is dominated by **decode tokens/sec** of the local model, not by Schematron.
+!!! note "How to read this"
+    **~30 seconds** is a normal full Corrector run on cloud (fix + checks), not only one tiny step. Token numbers are for **one** model rewrite. If the invoice needs all 3 retries, you pay for about 3× those tokens. Schematron/XSD checks are usually quick next to the model.
 
-!!! note "Cloud reference (Gemini 3.5 Flash)"
-    On cloud, a Corrector pass often completes in roughly **tens of seconds** depending on invoice size and how many attempts are needed. That is the **speed** benchmark for sizing local hardware. **Accuracy** of Gemini 3.5 is a separate bar — see below.
+On a local **Qwen3 8B** box with no GPU, one model call is often around **~3 minutes**. With a mid GPU (see **M** below), one job can land near the cloud **~30 s**. With a stronger GPU setup (**L**), the same 8B job can be as fast as cloud or a bit faster — and you can run more jobs at once without each one dragging. Qwen3 8B still will not match Gemini **quality** on hard invoices.
+
+---
+
+## How one Corrector job uses the model
+
+For a **UBL XML** invoice:
+
+| Step | What happens | Tokens (rough) |
+|------|----------------|----------------|
+| Fix attempt 1–3 | Model rewrites XML from validation errors | **~6k** in + **~2k** out **each time** |
+| Optional compare | Extra model call after a good file | One more call |
+
+Most of the wait is the model writing tokens. Validation is rarely the bottleneck.
+
+**Qwen3 8B context:** about **32K** tokens (roughly **30–32K** in practice). Raise the runtime context in Ollama if the default is too small, or large invoices get cut off.
 
 ---
 
 ## Hardware requirements
 
-### Scope of this chapter
+### What we are sizing
 
-Sizing for **Corrector on Qwen3 8B** with **3 LLM checks**, quantized **Q4_K_M / Q5_K_M** GGUF via Ollama or llama.cpp.
+Running Corrector with **Qwen3 8B** on the customer’s machine (UBL XML), compared to cloud **Gemini 3.5 Flash** (**~30 s**, good quality).
 
 | Goal | What hardware can do |
 |------|----------------------|
-| **Speed** vs Gemini 3.5 Flash | Approach similar *interactive* latency with a mid/high GPU |
-| **Accuracy** vs Gemini 3.5 Flash | **Not matched by Qwen3 8B** — 8B is a practical on-prem tradeoff, not a quality twin of Gemini 3.5 |
+| **Speed** vs Gemini (~30 s) | Yes — with enough GPU, one job can match cloud time or beat it a little. Extra GPUs mainly help when several people run Corrector at the same time |
+| **Quality** vs Gemini | **Qwen3 8B will not match Gemini** — it is a practical on-prem choice, not the same quality |
 
 !!! warning "Quality vs cloud"
-    Matching Gemini 3.5 **accuracy** is not a GPU-size problem you can solve with Qwen3 8B. Larger open models (e.g. 32B+) or staying on Gemini remain the path for cloud-parity quality. Hardware below is for running **Qwen3 8B Corrector** well locally.
+    Buying a bigger GPU does not make Qwen3 8B as good as Gemini 3.5. For cloud-level quality, stay on Gemini or move to a much larger open model. The hardware below is so Qwen3 8B Corrector **runs well**, not so it **equals Gemini**.
 
-### Model footprint (Qwen3 8B)
-
-| Quantization | Disk / weights | Runtime RAM or VRAM (≈4k–8k context) |
-|--------------|----------------|--------------------------------------|
-| Q4_K_M | ~4.7–5.2 GB | ~6–8 GB (weights + KV + runtime) |
-| Q5_K_M | ~5.5–6.5 GB | ~7–10 GB |
-
-Recommend **≥16 GB system RAM** even with a GPU (OS, Docker, API, KV headroom). Prefer **≥8k context** for Corrector prompts; default 4k can truncate large invoices.
+Use at least **16 GB** system RAM (more is better). Keep context at least **8k** for real invoices; the model can go up to about **32K**.
 
 ### Dell on-prem sizing (S / M / L)
 
-What from a **Dell PowerEdge** build matches Corrector on **Qwen3 8B** (3 LLM checks), relative to cloud Gemini *speed* (not Gemini accuracy).
+What we suggest from **Dell PowerEdge** for Qwen3 8B Corrector. Speed target = cloud Gemini **~30 s**. Details and photos: **[Dell hardware](dell-hardware.md)**.
 
-Prices = **net B2B Germany (~2026)** list / market ranges. Shared chassis base from Dell R760 quotes; GPU choices differentiate the tiers.
+Qwen3 8B needs roughly **8–12 GB** of GPU memory at a useful context — not a 48 GB card by default. Almost all wait time is the GPU (or CPU) generating text.
 
-| | **S — CPU** | **M — GPU** | **L — more GPU** |
-|---|-------------|-------------|------------------|
-| **Fit for Corrector** | Batch / internal / async only | Interactive single-user / small team | Concurrent jobs, longer context, room for larger models later |
-| **Processing time** (typical Peppol UBL, up to 3 LLM checks, Q4/Q5, thinking off) | **~3–10+ min** (~8–20 tok/s) | **~30 s – 2 min** (~50–100 tok/s) | **~15–60 s** (~100–200+ tok/s on 8B; headroom) |
-| **vs Gemini 3.5 Flash latency** | Much slower | Same *order of magnitude* for single jobs | Closest local feel; still not identical cloud SLA |
-| **Equipment** | Dell PowerEdge **R760** 2U · 2× Xeon Silver **4410Y** (12c/24t) · **128 GB** DDR5 ECC · dual redundant PSU (e.g. 1100–1400 W class) · BOSS-N1 + 2× M.2 NVMe RAID 1 · dual 10GbE · **no GPU** · ProSupport 3y | Same R760 base · **1× NVIDIA L4 24 GB** (or **RTX 4000 Ada 20 GB** as cheaper workstation/server GPU) · GPU riser / cables / shrouds · stronger PSU if required · ProSupport 3y | Same R760 base · **1× NVIDIA L40S 48 GB** · Dell GPU riser kit + Gen5 power + air shrouds · **2× 2400 W** Titanium/Platinum hot-plug (dual-GPU ready) · ProSupport 3y Mission Critical |
-| **Equipment price (net, per major piece)** | Chassis+board+iDRAC: **€3.8k–4.5k** · 2× CPU: **€1.4k–1.8k** · 128 GB RAM: **€0.7k–0.95k** · PSUs: **€0.5k–0.8k** · Boot RAID: **€0.65k–0.85k** · 10GbE: **€0.35k–0.5k** · ProSupport: **€1.8k–2.5k** | Base as S (PSU often **€0.7k–1.0k**) · **L4**: **€4.5k–6.0k** *or* **RTX 4000 Ada**: **€2.0k–2.5k** · GPU kit: **€0.4k–0.7k** · ProSupport: **€2.2k–3.0k** | Chassis: **€3.8k–4.5k** · 2× CPU: **€1.4k–1.8k** · RAM: **€0.7k–0.95k** · 2× 2400 W PSU: **€0.8k–1.1k** · **L40S**: **€10.5k–12.0k** · GPU kit: **€0.6k–0.9k** · Boot RAID: **€0.65k–0.85k** · 10GbE: **€0.35k–0.5k** · ProSupport: **€2.4k–3.2k** |
-| **Hardware investment total (net)** | **~€9.5k – €12.5k** | **~€15k – €20k** (with L4) · **~€13k – €17k** (with RTX 4000 Ada) | **~€21k – €26k** |
+Prices = **average net B2B Germany (~2026)**.
 
-!!! tip "Which Dell tier matches our local Corrector setup?"
-    Compose + **Qwen3 8B** for Corrector maps most cleanly to **M (1× L4 / RTX 4000 Ada)**: enough VRAM for Q4/Q5 at 8k context and latency near cloud for single jobs. **S** is only for queued/batch. **L (L40S)** is overkill for 8B alone but right if you want concurrency, Qwen 32B later, or dual-GPU expansion.
+| | **S — CPU** | **M — GPU** (default) | **L — more GPU** |
+|---|-------------|------------------------|------------------|
+| **Best for** | Background / queued jobs only | Day-to-day Corrector for one user or a small team | Several jobs at once, longer context, or larger models later |
+| **Server** | **R360** or **R660** (one CPU) | **R760** / **R760xa** (can take a GPU) | Same **R760** / **R760xa** |
+| **Time for UBL XML** | **~3–10+ min** (slow CPU) | About **~30 s – 2 min** (aim near cloud **~30 s** for one job) | About **~15–60 s** on 8B; can match or beat cloud for one job |
+| **vs Gemini ~30 s** | Much slower | Same ballpark for one job | Can match or beat cloud for one job; extra GPU helps more when several jobs run together |
+| **Typical cost (net, avg)** | **~€7k** | **~€16k** | **~€23k** (L40S) · **~€22k** (2× L4) |
 
-!!! note "Price sources"
-    **L** component ranges follow DE B2B market quotes for R760 + L40S (2026). **M** GPU bands from EU reseller list prices (L4 ~€4.5k–6k; RTX 4000 Ada ~€2.0k–2.5k excl. VAT). **S** is the same R760 BOM without GPU/GPU kit and with lighter PSUs. Always re-quote Dell/reseller — list prices move.
+!!! tip "What to recommend"
+    Standard on-prem Corrector: **M = R760-class + one L4**. **S** is the cheap CPU box for overnight/queue work. **L** is the same server with **L40S** or **two L4s** — not a totally different product. Do not sell L40S as the default for 8B alone.
 
-### If you need accuracy closer to Gemini 3.5
+!!! note "Prices"
+    Rough DE B2B averages (2026): light 1-CPU PowerEdge for **S**; R760-class + **L4 ~€5.3k** for **M**; **L40S ~€11.3k** or a second **L4** for **L**. Always re-quote Dell or a reseller.
 
-| Approach | Hardware implication |
-|----------|----------------------|
-| Stay on **Gemini 3.5 Flash** (cloud) | No local GPU; API latency only |
-| Larger open weights (e.g. **Qwen3 32B** Q4) | Prefer **M with L4** minimum; **L (L40S)** more comfortable |
-| Qwen3 8B only | Expect **weaker** Schematron-fix success vs Gemini on hard invoices |
+### Parts list
 
-### Concurrency
+Average net price next to each part.
 
-Figures above are **single-stream**. Two concurrent Corrector jobs roughly need either:
+| Part | **S — CPU** | **M — GPU** | **L — more GPU** |
+|------|-------------|-------------|------------------|
+| **Server** | PowerEdge **R360** or **R660** · iDRAC — **~€3.0k** | PowerEdge **R760** / **R760xa** · iDRAC — **~€4.2k** | Same R760 / R760xa — **~€4.2k** |
+| **CPU** | **1×** Xeon Silver-class — **~€0.9k** | **1×** Xeon Silver-class — **~€0.9k** | **1×** Xeon Silver-class — **~€0.9k** |
+| **Memory** | **64 GB** DDR5 ECC — **~€0.4k** | **64–128 GB** DDR5 ECC — **~€0.4k–0.8k** | **128 GB** DDR5 ECC — **~€0.8k** |
+| **GPU** | **None** | **1× NVIDIA L4 24 GB** — **~€5.3k** | **1× NVIDIA L40S 48 GB** — **~€11.3k** *or* **2× L4** — **~€10.6k** |
+| **GPU kit** | — | Riser / cables / shrouds — **~€0.6k** | Riser kit + Gen5 power + air shrouds — **~€0.8k** |
+| **Power supply** | Dual (entry) — **~€0.5k** | Dual sized for one L4 — **~€0.9k** | Stronger dual (L40S / two L4s) — **~€1.0k** |
+| **Boot disk** | NVMe (mirror optional) — **~€0.5k** | NVMe (mirror optional) — **~€0.5k** | NVMe (mirror optional) — **~€0.5k** |
+| **Network** | 1GbE or 10GbE — **~€0.2k** | 10GbE recommended — **~€0.3k** | 10GbE recommended — **~€0.3k** |
+| **Support** | ProSupport 3y — **~€1.5k** | ProSupport 3y — **~€2.2k** | ProSupport 3y Mission Critical — **~€2.8k** |
 
-- two GPUs, or  
-- one larger GPU with enough VRAM for two contexts, or  
-- accept ~½ throughput on a single GPU.
+### If you need quality closer to Gemini 3.5
 
-CPU-only concurrency collapses quickly; prefer a queue (one job at a time) for CPU hosts.
+| Approach | Hardware note |
+|----------|----------------|
+| Stay on **Gemini 3.5 Flash** (cloud) | No local GPU; ~**30 s** Corrector |
+| Bigger open model (e.g. **Qwen3 32B**) | Prefer **L with L40S**, or stay on cloud |
+| Qwen3 8B only | Weaker fixes on hard invoices; **M + L4** is enough if the goal is **speed** |
 
-### Software stack (self-hosted)
+### Several jobs at once
 
-- Docker Compose: API container + **Ollama** (or llama.cpp / vLLM on GPU hosts)
-- Model: `qwen3:8b` (Q4/Q5 GGUF); disable thinking for Corrector (`think=false`) so tokens go into XML, not chain-of-thought
-- OS: Linux x86_64 with NVIDIA Container Toolkit when using a GPU
+**M** numbers are for **one** Corrector job at a time. For two jobs on 8B:
 
-### Checklist before customer / on-prem handoff
+- prefer **L with two L4s**, or  
+- one **L40S** with enough memory for two jobs, or  
+- accept about half the speed on one L4.
 
-- [ ] ≥16 GB RAM; SSD with ~20 GB free  
-- [ ] Q4_K_M or Q5_K_M weights pulled once and persisted on a volume  
-- [ ] Context ≥ 8192 for production invoices when possible  
-- [ ] GPU: NVIDIA driver + nvidia-container-toolkit verified (`nvidia-smi` inside the inference container)  
-- [ ] CPU-only: set expectations for **minutes-scale** Corrector, async UX preferred  
-- [ ] Do **not** claim Gemini 3.5 accuracy parity for Qwen3 8B in sales/onboarding materials  
+On **S** (CPU only), run one job at a time with a queue.
+
+### Software on the server
+
+- Docker Compose: app + **Ollama** (or llama.cpp / vLLM if you use a GPU host that way)
+- Model: `qwen3:8b`; turn thinking **off** for Corrector so the model spends tokens on XML, not on long “reasoning”
+- Linux x86_64; with a GPU, install NVIDIA drivers + nvidia-container-toolkit
+
+### Checklist before handoff
+
+- [ ] At least 16 GB RAM; SSD with ~20 GB free  
+- [ ] Model downloaded once and kept on a volume  
+- [ ] Context high enough for real invoices (prefer ≥ 8k; model supports ~32K)  
+- [ ] GPU path: drivers + toolkit OK (`nvidia-smi` in the model container)  
+- [ ] CPU-only (**S**): expect minutes per call, not ~30 s; background UI is fine  
+- [ ] Do **not** claim Qwen3 8B matches Gemini 3.5 quality in sales or onboarding  
 
 ---
 
 ## Related
 
-- Self-hosted Compose notes live with the API deployment docs (`SELF_HOSTED.md` in the library API repo)
-- Cloud Corrector continues to use Gemini via the managed API path
+- Self-hosted Compose notes: `SELF_HOSTED.md` in the library API repo
+- Cloud Corrector stays on Gemini
