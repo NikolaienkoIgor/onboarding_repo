@@ -80,8 +80,6 @@ nav:
     - Tutorial Creation Process: gtm/tutorial-creation-process.md
   - Products:
     - Overview: products/index.md
-    - Corrector: products/corrector.md
-    - Dell hardware: products/dell-hardware.md
     - eFTI: products/eFTI.md
   - GCP:
     - Installation & Authentication: gcp/installation-authentication.md
