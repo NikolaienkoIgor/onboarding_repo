@@ -76,3 +76,5 @@ The webinar ended with a readiness checklist spreadsheet that evaluates an organ
 ## News Source
 
 [Germany plans](https://www.vatcalc.com/germany/germany-bmf-targets-july-2030-vat-e-reporting-launch/)
+
+[Germany’s e-invoice paradox: is a failed invoice still a valid VAT invoice?](https://www.vatcalc.com/germany/germanys-e-invoicing-paradox-when-a-failed-invoice-is-still-valid-for-vat/)

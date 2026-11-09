@@ -79,7 +79,6 @@ nav:
     - Tool Vendors: gtm/tool-vendors.md
     - Tutorial Creation Process: gtm/tutorial-creation-process.md
   - Products:
-    - Overview: products/index.md
     - eFTI: products/eFTI.md
   - GCP:
     - Installation & Authentication: gcp/installation-authentication.md
